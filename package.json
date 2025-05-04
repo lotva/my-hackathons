@@ -1,31 +1,56 @@
 {
-  "scripts": {
-    "dev": "vike dev",
-    "build": "vike build",
-    "preview": "vike preview",
-    "lint": "eslint ."
-  },
-  "dependencies": {
-    "vike": "^0.4.229",
-    "@vitejs/plugin-vue": "^5.2.3",
-    "@vue/compiler-sfc": "^3.5.13",
-    "@vue/server-renderer": "^3.5.13",
-    "unplugin-vue-markdown": "^28.3.1",
-    "vike-vue": "^0.9.0",
-    "vue": "^3.5.13"
-  },
-  "devDependencies": {
-    "typescript": "^5.8.3",
-    "vite": "^6.3.3",
-    "eslint": "^9.25.1",
-    "@eslint/js": "^9.25.1",
-    "typescript-eslint": "^8.31.0",
-    "globals": "^16.0.0",
-    "eslint-plugin-prettier": "^5.2.6",
-    "eslint-config-prettier": "^10.1.2",
-    "eslint-plugin-vue": "^10.0.0",
-    "vue-eslint-parser": "^10.1.3",
-    "prettier": "^3.5.3"
-  },
-  "type": "module"
+	"scripts": {
+		"dev": "vike dev",
+		"build": "vike build",
+		"preview": "vike preview",
+		"check:formatting": "prettier . --check",
+		"check:styles": "stylelint \"**/*.{vue,css}\"",
+		"check:scripts": "eslint",
+		"check:types": "vue-tsc --noEmit"
+	},
+	"engines": {
+		"node": ">=21.7.1",
+		"pnpm": ">=10.10.0"
+	},
+	"dependencies": {
+		"@types/node": "^22.15.3",
+		"@vitejs/plugin-vue": "^5.2.3",
+		"@vue/compiler-sfc": "^3.5.13",
+		"@vue/server-renderer": "^3.5.13",
+		"vike": "^0.4.229",
+		"vike-vue": "^0.9.0",
+		"vue": "^3.5.13"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^19.8.0",
+		"@commitlint/config-conventional": "^19.8.0",
+		"@commitlint/types": "^19.8.0",
+		"@eslint/js": "^9.25.1",
+		"@playwright/test": "^1.52.0",
+		"@vitest/eslint-plugin": "^1.1.44",
+		"@vue/eslint-config-prettier": "^10.2.0",
+		"@vue/eslint-config-typescript": "^14.5.0",
+		"@vue/test-utils": "^2.4.6",
+		"@vue/tsconfig": "^0.7.0",
+		"eslint": "^9.25.1",
+		"eslint-config-prettier": "^10.1.2",
+		"eslint-plugin-perfectionist": "^4.12.3",
+		"eslint-plugin-playwright": "^2.2.0",
+		"eslint-plugin-prettier": "^5.2.6",
+		"eslint-plugin-unicorn": "^59.0.0",
+		"eslint-plugin-vue": "^10.0.0",
+		"globals": "^16.0.0",
+		"lefthook": "^1.11.12",
+		"postcss-html": "^1.8.0",
+		"prettier": "^3.5.3",
+		"stylelint": "^16.19.1",
+		"stylelint-config-clean-order": "^7.0.0",
+		"stylelint-config-standard-vue": "^1.0.0",
+		"stylelint-plugin-logical-css": "^1.2.3",
+		"typescript": "^5.8.3",
+		"vite": "^6.3.3",
+		"vitest": "^3.1.2",
+		"vue-tsc": "^2.2.10"
+	},
+	"type": "module"
 }

@@ -1,74 +1,116 @@
-import eslint from "@eslint/js";
-import prettier from "eslint-plugin-prettier/recommended";
-import pluginVue from "eslint-plugin-vue";
-import globals from "globals";
-import tseslint from "typescript-eslint";
-import vueParser from "vue-eslint-parser";
+import pluginVitest from '@vitest/eslint-plugin'
+import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+import {
+	defineConfigWithVueTs,
+	vueTsConfigs,
+} from '@vue/eslint-config-typescript'
+import perfectionist from 'eslint-plugin-perfectionist'
+import pluginPlaywright from 'eslint-plugin-playwright'
+import pluginUnicorn from 'eslint-plugin-unicorn'
+import pluginVue from 'eslint-plugin-vue'
+import { globalIgnores } from 'eslint/config'
 
-export default tseslint.config(
-  {
-    ignores: [
-      "dist/*",
-      // Temporary compiled files
-      "**/*.ts.build-*.mjs",
+export default defineConfigWithVueTs(
+	{
+		files: ['**/*.{ts,mts,tsx,vue}'],
+		name: 'app/files-to-lint',
+	},
 
-      // JS files at the root of the project
-      "*.js",
-      "*.cjs",
-      "*.mjs",
-    ],
-  },
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-  {
-    languageOptions: {
-      parserOptions: {
-        warnOnUnsupportedTypeScriptVersion: false,
-        sourceType: "module",
-        ecmaVersion: "latest",
-      },
-    },
-  },
-  {
-    rules: {
-      "@typescript-eslint/no-unused-vars": [
-        1,
-        {
-          argsIgnorePattern: "^_",
-        },
-      ],
-      "@typescript-eslint/no-namespace": 0,
-    },
-  },
+	globalIgnores([
+		'src/core/api/openapi.d.ts',
+		'**/dist/**',
+		'**/dist-ssr/**',
+		'**/coverage/**',
+	]),
 
-  {
-    files: ["**/*.vue"],
-    languageOptions: {
-      parser: vueParser,
-      parserOptions: {
-        parser: tseslint.parser,
-        sourceType: "module",
-        ecmaVersion: "latest",
-      },
-    },
-  },
+	pluginVue.configs['flat/essential'],
+	vueTsConfigs.recommended,
+	pluginUnicorn.configs['all'],
+	perfectionist.configs['recommended-natural'],
 
-  ...pluginVue.configs["flat/recommended"],
+	{
+		...pluginVitest.configs.recommended,
+		files: ['src/**/__tests__/*'],
+	},
 
-  {
-    rules: {
-      "vue/multi-word-component-names": "off",
-      "vue/singleline-html-element-content-newline": "off",
-      "vue/max-attributes-per-line": "off",
-      "vue/html-self-closing": "off",
-    },
-    languageOptions: {
-      sourceType: "module",
-      globals: {
-        ...globals.browser,
-      },
-    },
-  },
+	{
+		...pluginPlaywright.configs['flat/recommended'],
+		files: ['e2e/**/*.{test,spec}.{js,ts,jsx,tsx}'],
+	},
 
-  prettier,
-);
+	skipFormatting,
+
+	{
+		rules: {
+			camelcase: ['warn', { ignoreDestructuring: true, properties: 'always' }],
+			curly: 'warn',
+
+			'unicorn/filename-case': [
+				'warn',
+				{
+					cases: {
+						camelCase: true,
+						pascalCase: true,
+					},
+				},
+			],
+
+			'vue/block-lang': [
+				'error',
+				{
+					script: {
+						lang: 'ts',
+					},
+				},
+			],
+
+			'vue/block-order': [
+				'error',
+				{
+					order: ['template', 'script', 'style'],
+				},
+			],
+
+			'vue/component-api-style': ['error', ['script-setup']],
+			'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+			'vue/custom-event-name-casing': ['warn'],
+
+			'vue/define-emits-declaration': ['error', 'type-literal'],
+			'vue/define-macros-order': [
+				'warn',
+				{
+					defineExposeLast: true,
+				},
+			],
+
+			'vue/define-props-declaration': ['error'],
+
+			'vue/enforce-style-attribute': ['error', { allow: ['scoped', 'plain'] }],
+
+			'vue/html-button-has-type': ['error'],
+
+			'vue/html-indent': ['warn', 'tab'],
+
+			'vue/html-self-closing': 'off',
+
+			'vue/max-attributes-per-line': 'off',
+
+			'vue/multi-word-component-names': 'off',
+			'vue/new-line-between-multi-line-property': ['warn'],
+			'vue/no-ref-object-reactivity-loss': ['error'],
+
+			'vue/no-required-prop-with-default': [
+				'error',
+				{
+					autofix: true,
+				},
+			],
+			'vue/padding-line-between-blocks': ['warn', 'always'],
+			'vue/padding-line-between-tags': [
+				'warn',
+				[{ blankLine: 'always', next: '*', prev: '*' }],
+			],
+			'vue/singleline-html-element-content-newline': 'off',
+		},
+	},
+)
