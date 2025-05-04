@@ -2,7 +2,7 @@
 	<div style="margin-block: 20px 10px">
 		<a href="/">
 			<img
-				src="@/assets/logo.svg"
+				src="@/(core)/assets/logo.svg"
 				height="64"
 				width="64"
 			/>

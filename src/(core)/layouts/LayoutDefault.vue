@@ -15,10 +15,10 @@
 </template>
 
 <script lang="ts" setup>
-	import Content from '@/components/Content.vue'
-	import Link from '@/components/Link.vue'
-	import Logo from '@/components/Logo.vue'
-	import Sidebar from '@/components/Sidebar.vue'
+	import Content from '@/(core)/components/Content.vue'
+	import Link from '@/(core)/components/Link.vue'
+	import Logo from '@/(core)/components/Logo.vue'
+	import Sidebar from '@/(core)/components/Sidebar.vue'
 </script>
 
 <style>

@@ -9,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-	import Counter from '@/components/Counter.vue'
+	import Counter from '@/(core)/components/Counter.vue'
 </script>
