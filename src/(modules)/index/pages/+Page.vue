@@ -3,11 +3,14 @@
 	This page is:
 	<ul>
 		<li>Rendered to HTML.</li>
-
-		<li>Interactive. <Counter /></li>
 	</ul>
 </template>
 
 <script setup lang="ts">
-	import Counter from '@/(core)/components/Counter.vue'
+	import { useData } from 'vike-vue/useData'
+
+	import type { Data } from './+data.js'
+
+	const hackathons = useData<Data>()
+	console.log(hackathons.data)
 </script>

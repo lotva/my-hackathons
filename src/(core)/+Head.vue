@@ -1,12 +1,18 @@
 <!-- https://vike.dev/Head -->
 
 <template>
-	<link
-		rel="icon"
-		:href="logoUrl"
+	<meta
+		property="og:type"
+		content="website"
+	/>
+
+	<meta
+		property="og:locale"
+		content="ru_RU"
+	/>
+
+	<meta
+		property="og:site_name"
+		content="Мои хакатоны"
 	/>
 </template>
-
-<script setup lang="ts">
-	import logoUrl from '@/(core)/assets/logo.svg'
-</script>
