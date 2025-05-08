@@ -1,0 +1,45 @@
+/* Typeface: PT Root UI */
+
+:where(.root-metrics-fix),
+figcaption,
+p,
+h3,
+dt,
+dd,
+small,
+.content > h2,
+.content > ul,
+.content > ol,
+.note:not(div, fieldset, .content),
+.button {
+	@mixin compensator;
+
+	&::before {
+		content: '';
+		display: table;
+		margin-block-end: calc(-0.35em - (1lh - 1em) / 2);
+	}
+
+	&::after {
+		content: '';
+		display: table;
+		margin-block-start: calc(-0.15em - (1lh - 1em) / 2);
+	}
+}
+
+/* Typeface: Damn */
+
+:where(.damn-metrics-fix),
+h1 {
+	&::before {
+		content: '';
+		display: table;
+		margin-block-end: calc(-0.05em - (1lh - 1em) / 2);
+	}
+
+	&::after {
+		content: '';
+		display: table;
+		margin-block-start: calc(-0.25em - (1lh - 1em) / 2);
+	}
+}

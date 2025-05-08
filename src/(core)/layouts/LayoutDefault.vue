@@ -4,6 +4,10 @@
 	</div>
 </template>
 
+<style>
+	@import url('@/(core)/styles/index.css');
+</style>
+
 <style scoped>
 	#page-content {
 		opacity: 1;

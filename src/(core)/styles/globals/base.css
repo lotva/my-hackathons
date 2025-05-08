@@ -1,0 +1,22 @@
+html {
+	cursor: default;
+	scrollbar-gutter: stable;
+
+	font-family: 'PT Root UI', sans-serif;
+	font-size: 18px;
+	font-size: clamp(18px, 2vi, 32px);
+	font-weight: var(--font-weight);
+	line-height: var(--leading);
+	color: var(--text);
+
+	background-color: var(--background);
+}
+
+body {
+	max-inline-size: 1440px;
+	margin: var(--gap) auto var(--gap-3);
+}
+
+.holder {
+	padding-inline: max(var(--gap), 4%);
+}

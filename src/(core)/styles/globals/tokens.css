@@ -1,0 +1,88 @@
+@define-mixin light {
+	--text: var(--tx);
+	--strong: var(--tx);
+	--note: var(--tx);
+
+	--background: var(--bg);
+	--accent: var(--red);
+	--accent-hover: var(--red-hover);
+	--accent-border: var(--red-border);
+
+	--tx: var(--flexoki-black);
+	--tx-2: var(--flexoki-600);
+	--tx-3: var(--flexoki-300);
+
+	--ui: var(--flexoki-100);
+	--ui-2: var(--flexoki-150);
+	--ui-3: var(--flexoki-200);
+
+	--bg: var(--flexoki-paper);
+	--bg-2: var(--flexoki-50);
+
+	--red: var(--flexoki-red-600);
+	--red-hover: var(--flexoki-red-400);
+	--red-border: var(--flexoki-red-100);
+}
+
+@define-mixin dark {
+	--text: var(--tx-2);
+	--strong: var(--tx);
+	--note: var(--tx-3);
+
+	--background: var(--bg);
+	--accent: var(--red);
+	--accent-hover: var(--red-hover);
+	--accent-border: var(--red-border);
+
+	--tx: var(--flexoki-200);
+	--tx-2: var(--flexoki-500);
+	--tx-3: var(--flexoki-700);
+
+	--ui: var(--flexoki-900);
+	--ui-2: var(--flexoki-850);
+	--ui-3: var(--flexoki-800);
+
+	--bg: var(--flexoki-black);
+	--bg-2: var(--flexoki-950);
+
+	--red: var(--flexoki-red-400);
+	--red-hover: var(--strong);
+	--red-border: var(--flexoki-red-500);
+}
+
+:root {
+	--rex: calc(1rem / 2);
+	--rlh: calc(1rem * var(--leading));
+
+	--gap: calc(var(--rlh) - var(--rex));
+	--gap-2: calc(var(--gap) * 2);
+	--gap-3: calc(var(--gap) * 3);
+	--gap--relative: calc(1lh - 1ex);
+
+	--underline: underline;
+	--underline-thickness: 0.06em;
+
+	--leading: 1.3;
+	--paragraph-width: 30rem;
+	--compensator: -0.07em;
+	--font-weight: 500;
+	--space-width: 0.27em;
+
+	@mixin light;
+
+	color-scheme: light;
+
+	@media (prefers-color-scheme: dark) {
+		@mixin dark;
+
+		color-scheme: dark;
+	}
+}
+
+.inverted {
+	@mixin dark;
+
+	@media (prefers-color-scheme: dark) {
+		@mixin light;
+	}
+}

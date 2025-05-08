@@ -1,0 +1,11 @@
+@define-mixin compensator {
+	margin-inline-start: var(--compensator);
+}
+
+@define-mixin hover-focus-states {
+	&.hover,
+	&:hover,
+	&:focus-visible {
+		@mixin-content;
+	}
+}
