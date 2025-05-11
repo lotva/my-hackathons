@@ -1,3 +1,4 @@
+import vikeRoutegen from '@blankeos/vike-routegen'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath } from 'node:url'
 import vike from 'vike/plugin'
@@ -10,6 +11,9 @@ export default defineConfig({
 
 	plugins: [
 		vike(),
+		vikeRoutegen({
+			outputPath: 'src/(core)/route-tree.gen.ts',
+		}),
 		vue({
 			include: [/\.vue$/, /\.md$/],
 		}),

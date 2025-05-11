@@ -18,6 +18,7 @@ export default defineConfigWithVueTs(
 
 	globalIgnores([
 		'src/(core)/api/openapi.d.ts',
+		'src/(core)/route-tree.gen.ts',
 		'**/dist/**',
 		'**/dist-ssr/**',
 		'**/coverage/**',
