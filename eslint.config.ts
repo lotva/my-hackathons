@@ -4,6 +4,7 @@ import {
 	defineConfigWithVueTs,
 	vueTsConfigs,
 } from '@vue/eslint-config-typescript'
+import * as pluginImportX from 'eslint-plugin-import-x'
 import perfectionist from 'eslint-plugin-perfectionist'
 import pluginPlaywright from 'eslint-plugin-playwright'
 import pluginUnicorn from 'eslint-plugin-unicorn'
@@ -24,10 +25,12 @@ export default defineConfigWithVueTs(
 		'**/coverage/**',
 	]),
 
-	pluginVue.configs['flat/essential'],
+	pluginVue.configs['flat/recommended'],
 	vueTsConfigs.recommended,
-	pluginUnicorn.configs['all'],
+	pluginUnicorn.configs.all,
 	perfectionist.configs['recommended-natural'],
+	pluginImportX.flatConfigs.recommended,
+	pluginImportX.flatConfigs.typescript,
 
 	{
 		...pluginVitest.configs.recommended,
@@ -45,6 +48,9 @@ export default defineConfigWithVueTs(
 		rules: {
 			camelcase: ['warn', { ignoreDestructuring: true, properties: 'always' }],
 			curly: 'warn',
+
+			'import-x/first': 'warn',
+			'import-x/newline-after-import': 'warn',
 
 			'unicorn/filename-case': [
 				'warn',
@@ -106,6 +112,8 @@ export default defineConfigWithVueTs(
 					autofix: true,
 				},
 			],
+
+			'vue/no-v-html': 'off',
 			'vue/padding-line-between-blocks': ['warn', 'always'],
 			'vue/padding-line-between-tags': [
 				'warn',

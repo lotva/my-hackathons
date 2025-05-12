@@ -1,3 +1,4 @@
-sideEffectsCache: false
 onlyBuiltDependencies:
   - lefthook
+  - unrs-resolver
+sideEffectsCache: false
