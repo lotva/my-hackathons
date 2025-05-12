@@ -50,12 +50,16 @@ h3 {
 }
 
 h1 {
+	@mixin compensator;
+
 	max-inline-size: 16em;
 	margin-block-end: var(--gap-2);
-	margin-inline-start: var(--compensator);
-
 	line-height: 0.9;
 	letter-spacing: -0.04em;
+
+	small + & {
+		margin-block-start: var(--gap-relative);
+	}
 }
 
 h2 {
@@ -178,11 +182,11 @@ small {
 
 .caps,
 .uppercase {
-	letter-spacing: 0.08em;
+	letter-spacing: 0.1em;
 }
 
-.caps--margin {
-	margin-inline-end: -0.08em;
+.caps._has-margin {
+	margin-inline-end: -0.1em;
 }
 
 .uppercase {

@@ -2,7 +2,7 @@
 	position: relative;
 }
 
-.clickable-area__link {
+.clickable-area-link {
 	padding: 0;
 
 	&::before {

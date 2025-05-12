@@ -57,16 +57,18 @@
 	--gap: calc(var(--rlh) - var(--rex));
 	--gap-2: calc(var(--gap) * 2);
 	--gap-3: calc(var(--gap) * 3);
-	--gap--relative: calc(1lh - 1ex);
+	--gap-relative: calc(1lh - 1ex);
 
 	--underline: underline;
 	--underline-thickness: 0.06em;
 
 	--leading: 1.3;
-	--paragraph-width: 30rem;
-	--compensator: -0.07em;
+	--paragraph-width: 32rem;
 	--font-weight: 500;
 	--space-width: 0.27em;
+
+	--root-compensator: -0.07em;
+	--damn-compensator: -0.03em;
 
 	@mixin light;
 
