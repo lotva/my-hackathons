@@ -54,6 +54,8 @@ h1 {
 
 	max-inline-size: 16em;
 	margin-block-end: var(--gap-2);
+
+	font-size: 2em;
 	line-height: 0.9;
 	letter-spacing: -0.04em;
 
