@@ -1,20 +1,47 @@
 <template>
-	<div class="layout">
+	<header class="header holder">
+		<Logo />
+
+		<a
+			class="link"
+			href="https://t.me/hackathons_notify_bot"
+		>
+			Телеграм-бот</a
+		>
+	</header>
+
+	<main class="holder">
 		<slot />
-	</div>
+	</main>
 </template>
+
+<script setup lang="ts">
+	import { Logo } from '../ui/Logo'
+</script>
 
 <style>
 	@import url('@/(core)/styles/index.css');
 </style>
 
 <style scoped>
-	#page-content {
-		opacity: 1;
-		transition: opacity 0.3s ease-in-out;
-	}
+	.header {
+		position: sticky;
+		z-index: 2;
+		inset-block-start: var(--gap);
 
-	body.page-is-transitioning #page-content {
-		opacity: 0;
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+
+		margin-block-end: calc(var(--gap) * 6);
+
+		.link {
+			--accent: var(--strong);
+			--accent-border: var(--strong);
+			--accent-hover: var(--red);
+
+			font-size: 0.75em;
+			line-height: 0;
+		}
 	}
 </style>
