@@ -11,7 +11,7 @@
 export { pageRoutes, getRoute, useParams }
 export type { PageRoute, UseParamsResult }
 
-const pageRoutes = ['/', '/event/@id'] as const
+const pageRoutes = ['/', '/events/@id'] as const
 
 type PageRoute = (typeof pageRoutes)[number]
 
