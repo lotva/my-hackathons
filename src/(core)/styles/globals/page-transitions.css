@@ -1,0 +1,8 @@
+main {
+	opacity: 1;
+	transition: opacity 0.2s ease-in-out;
+
+	body._is-transitioning & {
+		opacity: 0.75;
+	}
+}
