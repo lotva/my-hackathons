@@ -4,6 +4,40 @@
  */
 
 export interface paths {
+	'/location': {
+		parameters: {
+			query?: never
+			header?: never
+			path?: never
+			cookie?: never
+		}
+		/** Get Audience List */
+		get: operations['get_audience_list_location_get']
+		put?: never
+		post?: never
+		delete?: never
+		options?: never
+		head?: never
+		patch?: never
+		trace?: never
+	}
+	'/audience': {
+		parameters: {
+			query?: never
+			header?: never
+			path?: never
+			cookie?: never
+		}
+		/** Get Audience List */
+		get: operations['get_audience_list_audience_get']
+		put?: never
+		post?: never
+		delete?: never
+		options?: never
+		head?: never
+		patch?: never
+		trace?: never
+	}
 	'/hackathons': {
 		parameters: {
 			query?: never
@@ -49,6 +83,13 @@ export interface components {
 			/** Press Contact */
 			press_contact: string
 		}
+		/** DateTimeWithRenderFlag */
+		DateTimeWithRenderFlag: {
+			/** Utc */
+			utc: string
+			/** Shouldrendertime */
+			shouldRenderTime: boolean
+		}
 		/** HTTPValidationError */
 		HTTPValidationError: {
 			/** Detail */
@@ -60,12 +101,9 @@ export interface components {
 			id: string
 			/** Name */
 			name: string
-			/** Datestart */
-			dateStart: string
-			/** Dateend */
-			dateEnd: string
-			/** Registration Deadline */
-			registration_deadline: string
+			dateStart: components['schemas']['DateTimeWithRenderFlag']
+			dateEnd: components['schemas']['DateTimeWithRenderFlag']
+			registration_deadline: components['schemas']['DateTimeWithRenderFlag']
 			/** Address */
 			address: string
 			/** Format */
@@ -85,7 +123,7 @@ export interface components {
 			/** Requirements */
 			requirements: string[]
 			/** Typeparticipant */
-			typeParticipant: string
+			typeParticipant: string[]
 			/** Participantcount */
 			participantCount: number
 			/** Team Size */
@@ -106,7 +144,7 @@ export interface components {
 			/** Prizes */
 			prizes: components['schemas']['Prize'][]
 			/** Location */
-			location: string
+			location: string[]
 			/** Additional Events */
 			additional_events: string[]
 			/** Organizers */
@@ -118,6 +156,8 @@ export interface components {
 			contacts: components['schemas']['Contacts']
 			/** Notes */
 			notes: string[]
+			/** Isactual */
+			isActual: boolean
 		}
 		/** HackathonShort */
 		HackathonShort: {
@@ -125,18 +165,20 @@ export interface components {
 			id: string
 			/** Name */
 			name: string
-			/** Datestart */
-			dateStart: string
-			/** Dateend */
-			dateEnd: string
+			dateStart: components['schemas']['DateTimeWithRenderFlag']
+			dateEnd: components['schemas']['DateTimeWithRenderFlag']
 			/** Location */
-			location: string
+			location: string[]
 			/** Topic */
 			topic: string
+			/** Format */
+			format: string
 			/** Stack */
 			stack: string
 			/** Link */
 			link: string
+			/** Isactual */
+			isActual: boolean
 		}
 		/** Organizer */
 		Organizer: {
@@ -218,6 +260,46 @@ export interface components {
 }
 export type $defs = Record<string, never>
 export interface operations {
+	get_audience_list_location_get: {
+		parameters: {
+			query?: never
+			header?: never
+			path?: never
+			cookie?: never
+		}
+		requestBody?: never
+		responses: {
+			/** @description Successful Response */
+			200: {
+				headers: {
+					[name: string]: unknown
+				}
+				content: {
+					'application/json': string[]
+				}
+			}
+		}
+	}
+	get_audience_list_audience_get: {
+		parameters: {
+			query?: never
+			header?: never
+			path?: never
+			cookie?: never
+		}
+		requestBody?: never
+		responses: {
+			/** @description Successful Response */
+			200: {
+				headers: {
+					[name: string]: unknown
+				}
+				content: {
+					'application/json': string[]
+				}
+			}
+		}
+	}
 	get_hackathons_hackathons_get: {
 		parameters: {
 			query?: {
@@ -225,16 +307,30 @@ export interface operations {
 				limit?: number
 				/** @description Поиск по названию */
 				search?: string | null
-				/** @description Поиск по дате (YYYY-MM-DD) */
-				date?: string | null
+				/** @description Начальная дата поиска (YYYY-MM-DD) */
+				start_date?: string | null
+				/** @description Конечная дата поиска (YYYY-MM-DD) */
+				end_date?: string | null
 				/** @description Поиск по локации */
 				location?: string | null
-				/** @description Поиск по аудитории */
-				type_participant?: string | null
+				/** @description Поиск по целевой группе */
+				typeParticipant?: 'Студенты' | 'Школьники' | 'Специалисты'
+				/** @description Поиск по профессиольному профилю */
+				audience?:
+					| 'Менеджеры'
+					| 'Инженеры'
+					| 'Безопасность'
+					| 'Архитекторы'
+					| 'Дизайнеры'
+					| 'Разработчики'
+					| 'Маркетинг'
+					| 'Аналитики'
 				/** @description Фильтр по формату */
-				format?: string | null
-				/** @description Сортировка: 'nearest' или 'furthest' */
-				sort?: string | null
+				format?: 'Гибрид' | 'Оффлайн' | 'Онлайн'
+				/** @description Сортировка по дате начала */
+				sort?: 'Сначала дальние' | 'Сначала ближайшие'
+				/** @description Фильтр по актуальности */
+				isActual?: boolean | null
 			}
 			header?: never
 			path?: never
