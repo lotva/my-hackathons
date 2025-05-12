@@ -4,8 +4,6 @@
 figcaption,
 p,
 h3,
-dt,
-dd,
 small,
 .content > h2,
 .content > ul,
@@ -41,5 +39,21 @@ h1 {
 		content: '';
 		display: table;
 		margin-block-start: calc(-0.25em - (1lh - 1em) / 2);
+	}
+}
+
+/* Typeface: Drabina */
+
+:where(.drabina-metrics-fix) {
+	&::before {
+		content: '';
+		display: table;
+		margin-block-end: calc(-0.1724em - (1lh - 1em) / 2);
+	}
+
+	&::after {
+		content: '';
+		display: table;
+		margin-block-start: calc(-0.1379em - (1lh - 1em) / 2);
 	}
 }
