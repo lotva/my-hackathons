@@ -5,6 +5,7 @@ import vikeVue from 'vike-vue/config'
 
 export default {
 	extends: vikeVue as typeof vikeVue,
+	lang: 'ru',
 	Layout,
 	title: 'Мои хакатоны',
 } satisfies Config
