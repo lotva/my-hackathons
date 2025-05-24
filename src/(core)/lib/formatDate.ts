@@ -3,11 +3,7 @@ export interface IDateInput {
 	utc: string
 }
 
-interface IOptions {
-	shouldBreak: boolean
-}
-
-export function formatDate(input: IDateInput, options?: IOptions): string {
+export function formatDate(input: IDateInput): string {
 	const { shouldRenderTime, utc } = input
 
 	const iso = utc.replace(' ', 'T').replaceAll('.', '-')
@@ -25,9 +21,7 @@ export function formatDate(input: IDateInput, options?: IOptions): string {
 	if (shouldRenderTime) {
 		const time = timeFormatter.format(date)
 
-		return options?.shouldBreak
-			? `${formattedDate}<br>${time}`
-			: `${formattedDate}, ${time}`
+		return `${formattedDate}, ${time}`
 	}
 
 	return formattedDate

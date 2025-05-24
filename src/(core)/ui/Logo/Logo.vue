@@ -1,6 +1,6 @@
 <template>
 	<a
-		:class="['logo', { '_is-active': isActive }]"
+		:class="['logo', 'note', '_is-label', { '_is-active': isActive }]"
 		:href="!isActive ? getRoute('/') : undefined"
 		:aria-current="isActive"
 	>
@@ -47,10 +47,7 @@
 		padding: 0.15em 0.95em;
 		border-radius: 100vi;
 
-		font-size: 0.6em;
-		font-weight: 550;
 		color: var(--background);
-		text-transform: uppercase;
 		letter-spacing: 0.15em;
 
 		background-color: var(--strong);

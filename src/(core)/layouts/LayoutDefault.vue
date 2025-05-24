@@ -11,7 +11,7 @@
 	</header>
 
 	<main class="holder">
-		<slot />
+		<slot></slot>
 	</main>
 </template>
 

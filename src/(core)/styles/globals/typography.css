@@ -23,7 +23,7 @@ a {
 	}
 
 	@media (hover: hover) and (pointer: fine) {
-		&[href*="://"])
+		&[href*="://"]
 		{
 			cursor: alias;
 		}
@@ -50,9 +50,9 @@ h3 {
 }
 
 h1 {
-	@mixin compensator;
+	@mixin root-compensator;
 
-	max-inline-size: 16em;
+	max-inline-size: 14em;
 	margin-block-end: var(--gap-2);
 
 	font-size: 2em;

@@ -1,5 +1,9 @@
-@define-mixin compensator {
+@define-mixin root-compensator {
 	margin-inline-start: var(--root-compensator);
+}
+
+@define-mixin damn-compensator {
+	margin-inline-start: var(--damn-compensator);
 }
 
 @define-mixin hover-focus-states {

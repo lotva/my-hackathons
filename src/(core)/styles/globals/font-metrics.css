@@ -3,14 +3,13 @@
 :where(.root-metrics-fix),
 figcaption,
 p,
-h3,
 small,
 .content > h2,
 .content > ul,
 .content > ol,
 .note:not(div, fieldset, .content),
 .button {
-	@mixin compensator;
+	@mixin root-compensator;
 
 	&::before {
 		content: '';
@@ -29,6 +28,8 @@ small,
 
 :where(.damn-metrics-fix),
 h1 {
+	@mixin damn-compensator;
+
 	&::before {
 		content: '';
 		display: table;
