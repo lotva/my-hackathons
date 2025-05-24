@@ -2,13 +2,12 @@
 
 :where(.root-metrics-fix),
 figcaption,
+h1,
 p,
 small,
 .content > h2,
 .content > ul,
-.content > ol,
-.note:not(div, fieldset, .content),
-.button {
+.content > ol {
 	@mixin root-compensator;
 
 	&::before {
@@ -26,8 +25,7 @@ small,
 
 /* Typeface: Damn */
 
-:where(.damn-metrics-fix),
-h1 {
+:where(.damn-metrics-fix) {
 	@mixin damn-compensator;
 
 	&::before {

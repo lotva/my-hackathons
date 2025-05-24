@@ -54,20 +54,21 @@ h1 {
 
 	max-inline-size: 14em;
 	margin-block-end: var(--gap-2);
+	padding-block-start: var(--gap-relative);
 
 	font-size: 2em;
 	line-height: 0.9;
 	letter-spacing: -0.04em;
-
-	small + & {
-		margin-block-start: var(--gap-relative);
-	}
 }
 
 h2 {
 	font-size: 1.5em;
 	line-height: 1;
 	letter-spacing: -0.03em;
+
+	small + & {
+		margin-block-start: var(--gap-relative);
+	}
 
 	a {
 		text-underline-offset: 0.2em;
