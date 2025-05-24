@@ -1,0 +1,55 @@
+.button {
+	--focus-scale: 0.95;
+
+	cursor: pointer;
+
+	display: flex;
+
+	padding: calc(var(--gap) / 2) calc(var(--gap) / 2 + var(--gap) / 4);
+	border: none;
+	border-radius: 100vi;
+
+	font: inherit;
+	color: var(--strong);
+
+	background-color: var(--bg-2);
+
+	transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	transition-duration: 0.2s;
+	transition-property: background-color, transform;
+
+	&:hover {
+		background-color: var(--ui);
+		transition-property: transform;
+	}
+
+	&:focus-visible {
+		outline-style: solid;
+		outline-width: var(--outline-thickness);
+		outline-offset: var(--outline-thickness);
+	}
+
+	&:active:focus,
+	&:active:hover {
+		transform: scale(var(--focus-scale));
+		animation: pop 0s ease-out;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		animation: pop 0.25s ease-out;
+	}
+}
+
+@keyframes pop {
+	0% {
+		transform: scale(var(--focus-scale));
+	}
+
+	40% {
+		transform: scale(1.02);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}

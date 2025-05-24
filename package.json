@@ -13,6 +13,7 @@
 		"pnpm": ">=10.10.0"
 	},
 	"dependencies": {
+		"@ark-ui/vue": "^5.9.1",
 		"@types/node": "^22.15.3",
 		"@vitejs/plugin-vue": "^5.2.3",
 		"@vue/compiler-sfc": "^3.5.13",

@@ -61,6 +61,15 @@ export default defineConfigWithVueTs(
 					},
 				},
 			],
+			'unicorn/no-null': 'warn',
+			'unicorn/prevent-abbreviations': [
+				'warn',
+				{
+					replacements: {
+						props: false,
+					},
+				},
+			],
 
 			'vue/block-lang': [
 				'error',

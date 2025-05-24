@@ -8,5 +8,6 @@
 @import './globals/base.css';
 @import './globals/page-transitions.css';
 
+@import './utils/button.css';
 @import './utils/clickable-area.css';
 @import './utils/visually-hidden.css';

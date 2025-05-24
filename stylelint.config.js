@@ -4,6 +4,7 @@ export default {
 	plugins: ['stylelint-plugin-logical-css'],
 
 	rules: {
+		'declaration-property-value-no-unknown': null,
 		'no-descending-specificity': [true, { severity: 'warning' }],
 
 		'plugin/use-logical-properties-and-values': [true, { severity: 'warning' }],
