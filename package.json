@@ -4,7 +4,7 @@
 		"build": "vike build",
 		"preview": "vike preview",
 		"check:formatting": "prettier . --check",
-		"check:styles": "stylelint \"**/*.{vue,css}\"",
+		"check:styles": "stylelint \"src/**/*.{vue,css}\"",
 		"check:scripts": "eslint",
 		"check:types": "vue-tsc --noEmit"
 	},
