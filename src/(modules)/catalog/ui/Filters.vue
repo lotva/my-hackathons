@@ -1,5 +1,8 @@
 <template>
-	<div class="filters">
+	<search
+		class="filters"
+		aria-label="Фильтры"
+	>
 		<Select
 			v-model="filters.format"
 			class="select _format"
@@ -31,7 +34,7 @@
 			label="Когда старт"
 			placeholder="В любое время"
 		/>
-	</div>
+	</search>
 </template>
 
 <script setup lang="ts">

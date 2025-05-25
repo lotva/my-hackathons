@@ -1,5 +1,8 @@
 <template>
-	<div class="scroller">
+	<div
+		class="scroller"
+		aria-label="Выбор локации на карте"
+	>
 		<HackathonsMap
 			class="map"
 			:selected-location="modelValue"
@@ -13,8 +16,8 @@
 </template>
 
 <script setup lang="ts">
-	import 'hackathons.map/dist/hackathons.map.css'
 	import { ELocation, HackathonsMap } from 'hackathons.map'
+	import 'hackathons.map/dist/hackathons.map.css'
 
 	defineProps<{ modelValue?: ELocation }>()
 
