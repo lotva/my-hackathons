@@ -195,29 +195,3 @@ small {
 .uppercase {
 	text-transform: uppercase;
 }
-
-/* Inputs */
-
-input {
-	border: 0;
-	border-block-end: 1px solid
-		rgb(var(--color__text) / var(--link__underline-opacity));
-
-	font-family: inherit;
-	font-size: inherit;
-	font-weight: 550;
-	color: rgb(var(--color__accent));
-
-	background-color: transparent;
-
-	&::placeholder {
-		font-weight: normal;
-		opacity: var(--link__underline-opacity);
-	}
-
-	&:focus-visible {
-		border-color: rgb(var(--color__text));
-		outline-color: transparent;
-		outline-style: solid;
-	}
-}
