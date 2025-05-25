@@ -275,7 +275,9 @@ export interface operations {
 					[name: string]: unknown
 				}
 				content: {
-					'application/json': string[]
+					'application/json': {
+						[key: string]: unknown
+					}
 				}
 			}
 		}
@@ -314,21 +316,21 @@ export interface operations {
 				/** @description Поиск по локации */
 				location?: string | null
 				/** @description Поиск по целевой группе */
-				typeParticipant?: 'Студенты' | 'Школьники' | 'Специалисты'
+				typeParticipant?: 'Школьники' | 'Специалисты' | 'Студенты'
 				/** @description Поиск по профессиольному профилю */
 				audience?:
-					| 'Менеджеры'
-					| 'Инженеры'
 					| 'Безопасность'
-					| 'Архитекторы'
-					| 'Дизайнеры'
-					| 'Разработчики'
 					| 'Маркетинг'
+					| 'Менеджеры'
 					| 'Аналитики'
+					| 'Инженеры'
+					| 'Разработчики'
+					| 'Дизайнеры'
+					| 'Архитекторы'
 				/** @description Фильтр по формату */
-				format?: 'Гибрид' | 'Оффлайн' | 'Онлайн'
+				format?: 'Онлайн' | 'Оффлайн' | 'Гибрид'
 				/** @description Сортировка по дате начала */
-				sort?: 'Сначала дальние' | 'Сначала ближайшие'
+				sort?: 'Сначала ближайшие' | 'Сначала дальние'
 				/** @description Фильтр по актуальности */
 				isActual?: boolean | null
 			}

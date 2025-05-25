@@ -107,7 +107,16 @@ export default defineConfigWithVueTs(
 
 			'vue/html-indent': ['warn', 'tab'],
 
-			'vue/html-self-closing': 'off',
+			'vue/html-self-closing': [
+				'warn',
+				{
+					html: {
+						component: 'always',
+						normal: 'never',
+						void: 'always',
+					},
+				},
+			],
 
 			'vue/max-attributes-per-line': 'off',
 
