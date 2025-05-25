@@ -35,16 +35,12 @@
 </template>
 
 <script setup lang="ts">
-	import type { operations } from '@/(core)/api/openapi'
-
 	import { client } from '@/(core)/api'
 	import { Select } from '@/(core)/ui/Select'
 	import { computed, onMounted, ref, watchEffect } from 'vue'
 
 	import { FORMATS, IS_ACTUAL_OPTIONS, PARTICIPANTS } from '../config/filters'
-
-	type TFilters =
-		operations['get_hackathons_hackathons_get']['parameters']['query']
+	import { TFilters } from '../config/types'
 
 	const emit = defineEmits<{
 		'update:modelValue': [TFilters]
@@ -59,9 +55,7 @@
 
 	onMounted(fetchAudience)
 
-	type RemoveUndefined<T> = T extends undefined ? never : T
-
-	const filters = ref<RemoveUndefined<TFilters>>({
+	const filters = ref<TFilters>({
 		audience: undefined,
 		format: undefined,
 		isActual: undefined,
@@ -70,7 +64,7 @@
 
 	const isActualProxy = computed<string>({
 		get() {
-			if (filters.value?.isActual === undefined) {
+			if (filters.value.isActual === undefined) {
 				return ''
 			}
 			return String(filters.value.isActual)

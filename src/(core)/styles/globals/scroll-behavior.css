@@ -1,0 +1,3 @@
+:root {
+	scroll-padding-block-start: calc(var(--gap) * 4);
+}

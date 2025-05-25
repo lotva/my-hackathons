@@ -7,6 +7,7 @@
 @import './globals/tokens.css';
 @import './globals/base.css';
 @import './globals/page-transitions.css';
+@import './globals/scroll-behavior.css';
 
 @import './utils/button.css';
 @import './utils/clickable-area.css';
