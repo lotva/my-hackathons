@@ -1,3 +1,6 @@
 export { default as EventCard } from './EventCard.vue'
+export { default as Metadata } from './Metadata.vue'
 export { default as Prizes } from './Prizes.vue'
+export { default as RegisterAction } from './RegisterAction.vue'
+export { default as Requirements } from './Requirements.vue'
 export { default as Tracks } from './Tracks.vue'

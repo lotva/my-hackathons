@@ -1,7 +1,12 @@
 <template>
 	<template v-if="tracks.length > 0">
-		<div>
-			<h2>Треки</h2>
+		<section aria-labelledby="tracks">
+			<p
+				id="tracks"
+				class="root-metrics-fix"
+			>
+				Какие проекты предстоит делать:
+			</p>
 
 			<ul class="list">
 				<li
@@ -9,13 +14,13 @@
 					:key="track.name"
 				>
 					<article class="track">
-						<h3 class="track-title">{{ track.name }}</h3>
+						<h3 class="track-title root-metrics-fix">{{ track.name }}</h3>
 
-						<p>{{ track.description }}</p>
+						<p class="track-description">{{ track.description }}</p>
 					</article>
 				</li>
 			</ul>
-		</div>
+		</section>
 	</template>
 </template>
 
@@ -29,24 +34,35 @@
 
 <style scoped>
 	.list {
-		transform: skew(-10deg) rotate(-10deg);
 		display: grid;
-		row-gap: var(--gap-3);
-
-		@media (width >= 600px) {
-			transform: skew(-10deg) rotate(-10deg) translateY(-4vi);
-		}
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 18em), 1fr));
+		gap: var(--gap-2) var(--gap);
+		margin-block-start: calc(var(--gap) * 1.5);
 	}
 
 	.track {
+		container-type: inline-size;
 		display: grid;
-		row-gap: var(--gap);
+		row-gap: var(--gap-2);
+		border-block-start: 1px solid var(--tx-3);
 	}
 
 	.track-title {
-		font-family: Drabina, sans-serif;
-		font-size: min(9vi, 2.5em);
-		line-height: 1;
-		color: var(--strong);
+		margin-block-start: var(--gap-relative);
+
+		font-size: 2em;
+		font-weight: 500;
+		line-height: 0.9;
+		letter-spacing: -0.03em;
+	}
+
+	.track-description {
+		font-size: 0.75em;
+		line-height: 1.2;
+		letter-spacing: 0.01em;
+
+		@container (18em <= width <= 37em) {
+			max-inline-size: 17rem;
+		}
 	}
 </style>

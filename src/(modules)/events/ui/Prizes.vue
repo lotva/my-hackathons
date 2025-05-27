@@ -1,7 +1,12 @@
 <template>
 	<template v-if="prizes.length > 0">
-		<div>
-			<h2>Призы</h2>
+		<section aria-labelledby="prizes">
+			<h2
+				id="prizes"
+				class="root-metrics-fix"
+			>
+				Призы
+			</h2>
 
 			<ul class="list">
 				<li
@@ -9,13 +14,15 @@
 					:key="prize.title"
 				>
 					<article class="prize">
-						<h3 class="title">{{ prize.amount || prize.title }}</h3>
+						<h3 class="title damn-metrics-fix">
+							{{ prize.amount || prize.title }}
+						</h3>
 
-						<p>{{ prize.description || prize.title }}</p>
+						<p class="caption">{{ prize.description || prize.title }}</p>
 					</article>
 				</li>
 			</ul>
-		</div>
+		</section>
 	</template>
 </template>
 
@@ -29,19 +36,14 @@
 
 <style scoped>
 	.list {
-		transform: skew(-10deg) rotate(-10deg);
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--gap-3) var(--gap-2);
-
-		@media (width >= 600px) {
-			transform: skew(-10deg) rotate(-10deg) translateY(-3vi);
-		}
+		gap: var(--gap-2);
+		margin-block-start: var(--gap-2);
 	}
 
 	.prize {
 		display: grid;
-		row-gap: var(--gap);
 
 		li:first-child & {
 			--strong: var(--accent);
@@ -51,9 +53,16 @@
 	}
 
 	.title {
-		font-family: Drabina, sans-serif;
-		font-size: min(9vi, 2.5em);
-		line-height: 1;
+		margin-block-end: var(--gap-relative);
+
+		font-family: Damn, sans-serif;
+		font-size: min(16vi, 4.5em);
+		line-height: 0.8;
 		color: var(--strong);
+		letter-spacing: -0.03em;
+	}
+
+	.caption {
+		max-inline-size: var(--paragraph-width);
 	}
 </style>
