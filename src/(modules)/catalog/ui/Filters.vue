@@ -40,10 +40,14 @@
 <script setup lang="ts">
 	import { client } from '@/(core)/api'
 	import { Select } from '@/(core)/ui/Select'
-	import { computed, onMounted, ref, watchEffect } from 'vue'
+	import { computed, onMounted, ref } from 'vue'
 
 	import { FORMATS, IS_ACTUAL_OPTIONS, PARTICIPANTS } from '../config/filters'
 	import { TFilters } from '../config/types'
+
+	const props = defineProps<{
+		modelValue: TFilters
+	}>()
 
 	const emit = defineEmits<{
 		'update:modelValue': [TFilters]
@@ -57,13 +61,6 @@
 	}
 
 	onMounted(fetchAudience)
-
-	const filters = ref<TFilters>({
-		audience: undefined,
-		format: undefined,
-		isActual: undefined,
-		search: undefined,
-	})
 
 	const isActualProxy = computed<string>({
 		get() {
@@ -83,8 +80,9 @@
 		},
 	})
 
-	watchEffect(() => {
-		emit('update:modelValue', filters.value)
+	const filters = computed({
+		get: () => props.modelValue,
+		set: (value) => emit('update:modelValue', value),
 	})
 </script>
 
