@@ -16,6 +16,11 @@ export default defineConfig({
 		}),
 		vue({
 			include: [/\.vue$/, /\.md$/],
+			template: {
+				compilerOptions: {
+					isCustomElement: (tag) => tag === 'search',
+				},
+			},
 		}),
 	],
 
