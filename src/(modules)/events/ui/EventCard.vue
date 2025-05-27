@@ -111,6 +111,10 @@
 		.link {
 			color: inherit;
 			text-decoration: inherit;
+
+			.event-card:has(&:focus-visible) {
+				outline: var(--accent) solid var(--outline-thickness);
+			}
 		}
 
 		.factoid {

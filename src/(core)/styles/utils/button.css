@@ -24,6 +24,7 @@
 	}
 
 	&:focus-visible {
+		outline-color: var(--accent);
 		outline-style: solid;
 		outline-width: var(--outline-thickness);
 		outline-offset: var(--outline-thickness);

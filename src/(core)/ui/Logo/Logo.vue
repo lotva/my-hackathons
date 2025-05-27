@@ -56,6 +56,11 @@
 			column-gap 0.3s ease,
 			scale 0.15s ease;
 
+		&:focus-visible {
+			outline: var(--accent) solid var(--outline-thickness);
+			outline-offset: var(--outline-thickness);
+		}
+
 		body[class*='_is-transitioning'] & {
 			column-gap: 0.65ch;
 		}
