@@ -13,11 +13,23 @@
 	>
 		<div class="colored-layer">
 			<small>
-				<template v-if="event.topic"> {{ event.topic }} · </template>
-				{{ location }}
-				<template v-if="!isClipped">
-					· <Time :date="event.dateStart" />
-				</template>
+				<ul class="list">
+					<li
+						v-if="event.topic"
+						class="item"
+					>
+						{{ event.topic }}
+					</li>
+
+					<li class="item">{{ location }}</li>
+
+					<li
+						v-if="!isClipped"
+						class="item"
+					>
+						<Time :date="event.dateStart" />
+					</li>
+				</ul>
 			</small>
 
 			<h2 :class="['title', 'damn-metrics-fix']">
@@ -90,11 +102,24 @@
 			justify-content: space-between;
 
 			block-size: 100%;
-			padding: var(--gap) max(calc(var(--gap) / 2), 1vi) var(--gap-2);
+			padding: var(--gap) clamp(calc(var(--gap) / 2), 1vi, var(--gap))
+				var(--gap-2);
 
 			background-image: var(--cover-url);
 			background-position: center;
 			background-size: cover;
+		}
+
+		.list {
+			display: inline;
+		}
+
+		.item {
+			display: inline;
+
+			&:not(:last-child)::after {
+				content: '\00A0· ';
+			}
 		}
 
 		.title {
