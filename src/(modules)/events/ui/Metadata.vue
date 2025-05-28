@@ -1,61 +1,47 @@
 <template>
 	<dl class="metadata">
-		<div
+		<MetadataItem
 			v-if="event.dateStart"
-			class="item"
+			label="Дата начала"
 		>
-			<dt class="dt uppercase root-metrics-fix">Дата начала</dt>
+			<Time :date="event.dateStart" />
+		</MetadataItem>
 
-			<dd class="dd damn-metrics-fix"><Time :date="event.dateStart" /></dd>
-		</div>
-
-		<div
+		<MetadataItem
 			v-if="event.dateEnd"
-			class="item"
+			label="Дата окончания"
 		>
-			<dt class="dt uppercase root-metrics-fix">Дата окончания</dt>
+			<Time :date="event.dateEnd" />
+		</MetadataItem>
 
-			<dd class="dd damn-metrics-fix"><Time :date="event.dateEnd" /></dd>
-		</div>
-
-		<div
+		<MetadataItem
 			v-if="event.format"
-			class="item"
+			label="Формат"
 		>
-			<dt class="dt uppercase root-metrics-fix">Формат</dt>
+			{{ event.format }}
+		</MetadataItem>
 
-			<dd class="dd damn-metrics-fix">{{ event.format }}</dd>
-		</div>
-
-		<div
+		<MetadataItem
 			v-if="event.location.length > 0"
-			class="item"
+			label="Локация"
 		>
-			<dt class="dt uppercase root-metrics-fix">Локация</dt>
+			{{ event.location.join(', ') }}
+		</MetadataItem>
 
-			<dd class="dd damn-metrics-fix">{{ event.location.join(', ') }}</dd>
-		</div>
-
-		<div
+		<MetadataItem
 			v-if="event.stack"
-			class="item"
+			label="Стек"
 		>
-			<dt class="dt uppercase root-metrics-fix">Стек</dt>
+			{{ event.stack }}
+		</MetadataItem>
 
-			<dd class="dd damn-metrics-fix">{{ event.stack }}</dd>
-		</div>
-
-		<div
+		<MetadataItem
 			v-if="event.team_size"
-			class="item"
+			label="Состав команды"
 		>
-			<dt class="dt uppercase root-metrics-fix">Состав команды</dt>
-
-			<dd class="dd damn-metrics-fix">
-				{{ event.team_size }},
-				{{ event.typeParticipant.join(', ').toLowerCase() }}
-			</dd>
-		</div>
+			{{ event.team_size }},
+			{{ event.typeParticipant.join(', ').toLowerCase() }}
+		</MetadataItem>
 	</dl>
 </template>
 
@@ -63,6 +49,8 @@
 	import type { components } from '@/(core)/api/openapi'
 
 	import { Time } from '@/(core)/ui/Time'
+
+	import MetadataItem from './MetadataItem.vue'
 
 	defineProps<{
 		event: components['schemas']['HackathonFull']
@@ -74,31 +62,5 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(min(100%, 24em), 1fr));
 		gap: var(--gap-2) var(--gap);
-
-		.item {
-			display: flex;
-			flex-direction: column;
-			padding-block-start: calc(var(--gap) / 2);
-			border-block-start: 1px solid var(--tx-3);
-		}
-
-		.dt {
-			margin-block-end: calc(var(--gap) * 0.75);
-			font-size: 0.6rem;
-			font-weight: 500;
-		}
-
-		.dd {
-			font-family: Damn, sans-serif;
-			font-size: 4.5rem;
-			line-height: 0.8;
-			color: var(--strong);
-			letter-spacing: -0.03em;
-
-			:deep(.caps) {
-				margin-inline-end: 0;
-				letter-spacing: inherit;
-			}
-		}
 	}
 </style>
