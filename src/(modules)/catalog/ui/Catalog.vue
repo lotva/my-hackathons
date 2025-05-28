@@ -11,59 +11,38 @@
 		<Grid
 			:events="events"
 			class="grid"
+			:has-more="hasMore"
+			@load-more="loadMore"
 		/>
 	</div>
 </template>
 
 <script setup lang="ts">
-	import type { components } from '@/(core)/api/openapi'
-
-	import { client } from '@/(core)/api'
 	import { ELocation } from 'hackathons.map'
-	import { onMounted, ref, watchEffect } from 'vue'
+	import { computed, onMounted, ref } from 'vue'
 
 	import { TFilters } from '../config/types'
 	import { useFiltersSync } from '../lib/useFiltersSync'
+	import { usePaginatedEvents } from '../lib/usePaginatedEvents'
 	import { Filters, Grid, Map } from './'
 
 	const location = ref<ELocation | undefined>(undefined)
 
 	const filters = ref<TFilters>({})
-	const events = ref<components['schemas']['HackathonShort'][] | undefined>(
-		undefined,
+	const pagination = ref({ limit: 20, offset: 0 })
+	const combinedQueryParameters = computed(() => ({
+		...filters.value,
+		...pagination.value,
+	}))
+
+	const { events, fetchEvents, hasMore, loadMore } = usePaginatedEvents(
+		combinedQueryParameters,
 	)
-	const loading = ref(false)
 
 	onMounted(() => {
 		useFiltersSync(filters, location)
 
-		watchEffect(async (onInvalidate) => {
-			let canceled = false
-
-			onInvalidate(() => {
-				canceled = true
-				document.body.classList.remove('_is-transitioning')
-			})
-
-			document.body.classList.add('_is-transitioning')
-			loading.value = true
-
-			try {
-				const { data } = await client.GET('/hackathons', {
-					params: { query: filters.value },
-				})
-				if (!canceled) {
-					events.value = data ?? []
-				}
-			} catch (error) {
-				console.error('Ошибка при загрузке событий', error)
-			} finally {
-				if (!canceled) {
-					loading.value = false
-					document.body.classList.remove('_is-transitioning')
-				}
-			}
-		})
+		fetchEvents()
 	})
 </script>
 
