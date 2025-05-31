@@ -6,14 +6,19 @@ import { useConfig } from 'vike-vue/useConfig'
 export type Data = Awaited<ReturnType<typeof data>>
 
 export const data = async () => {
-	// https://vike.dev/useConfig
 	const config = useConfig()
 
-	const { data } = await client.GET('/hackathons')
-
 	config({
-		title: `${data?.length} Star Wars Movies`,
+		description:
+			'Каталог хакатонов России. Смотрите ближайшие даты, темы проектов и призы 🏆',
+		title: 'Мои хакатоны',
 	})
 
-	return { data }
+	const { data } = await client.GET('/hackathons', {
+		query: {
+			limit: 5,
+		},
+	})
+
+	return { data: data }
 }

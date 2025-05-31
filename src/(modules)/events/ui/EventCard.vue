@@ -12,7 +12,7 @@
 		]"
 	>
 		<div class="colored-layer">
-			<small>
+			<small class="caption">
 				<ul class="list">
 					<li
 						v-if="event.topic"
@@ -110,6 +110,10 @@
 			background-size: cover;
 		}
 
+		.caption {
+			margin-block-end: var(--gap-relative);
+		}
+
 		.list {
 			display: inline;
 		}
@@ -177,7 +181,7 @@
 			}
 
 			.title {
-				margin-block: calc(var(--gap) / 2) var(--gap-3);
+				margin-block: 0 var(--gap-3);
 				color: transparent;
 			}
 		}
