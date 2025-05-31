@@ -24,7 +24,9 @@
 	import { TFilters } from '../config/types'
 	import { useFiltersSync } from '../lib/useFiltersSync'
 	import { usePaginatedEvents } from '../lib/usePaginatedEvents'
-	import { Filters, Grid, Map } from './'
+	import Filters from './Filters.vue'
+	import Grid from './Grid.vue'
+	import Map from './Map.vue'
 
 	const location = ref<ELocation | undefined>(undefined)
 
