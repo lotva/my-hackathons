@@ -27,21 +27,6 @@
 		>
 			{{ event.location.join(', ') }}
 		</MetadataItem>
-
-		<MetadataItem
-			v-if="event.stack"
-			label="Стек"
-		>
-			{{ event.stack }}
-		</MetadataItem>
-
-		<MetadataItem
-			v-if="event.team_size"
-			label="Состав команды"
-		>
-			{{ event.team_size }},
-			{{ event.typeParticipant.join(', ').toLowerCase() }}
-		</MetadataItem>
 	</dl>
 </template>
 
@@ -59,8 +44,8 @@
 
 <style scoped>
 	.metadata {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(min(100%, 24em), 1fr));
+		display: flex;
+		flex-wrap: wrap;
 		gap: var(--gap-2) var(--gap);
 	}
 </style>

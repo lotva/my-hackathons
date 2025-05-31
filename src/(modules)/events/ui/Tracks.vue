@@ -1,27 +1,24 @@
 <template>
-	<template v-if="tracks.length > 0">
-		<section aria-labelledby="tracks">
-			<p
-				id="tracks"
-				class="root-metrics-fix"
+	<section
+		v-if="tracks.length > 0"
+		aria-labelledby="tracks"
+	>
+		<p id="tracks">Какие проекты предстоит делать:</p>
+
+		<ul class="list">
+			<li
+				v-for="track in tracks"
+				:key="track.name"
+				class="item"
 			>
-				Какие проекты предстоит делать:
-			</p>
+				<article class="track">
+					<h3 class="track-title root-metrics-fix">{{ track.name }}</h3>
 
-			<ul class="list">
-				<li
-					v-for="track in tracks"
-					:key="track.name"
-				>
-					<article class="track">
-						<h3 class="track-title root-metrics-fix">{{ track.name }}</h3>
-
-						<p class="track-description">{{ track.description }}</p>
-					</article>
-				</li>
-			</ul>
-		</section>
-	</template>
+					<p class="track-description">{{ track.description }}</p>
+				</article>
+			</li>
+		</ul>
+	</section>
 </template>
 
 <script setup lang="ts">
@@ -34,10 +31,15 @@
 
 <style scoped>
 	.list {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(min(100%, 18em), 1fr));
+		display: flex;
+		flex-wrap: wrap;
 		gap: var(--gap-2) var(--gap);
 		margin-block-start: calc(var(--gap) * 1.5);
+	}
+
+	.item {
+		flex-basis: max(310px, calc(50% - var(--gap)));
+		flex-grow: 1;
 	}
 
 	.track {
@@ -61,7 +63,7 @@
 		line-height: 1.2;
 		letter-spacing: 0.01em;
 
-		@container (18em <= width <= 37em) {
+		@container (width >= 18em) {
 			max-inline-size: 17rem;
 		}
 	}

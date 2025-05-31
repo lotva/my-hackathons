@@ -7,6 +7,16 @@ export default {
 		'declaration-property-value-no-unknown': null,
 		'no-descending-specificity': [true, { severity: 'warning' }],
 
+		'order/order': [
+			[
+				'custom-properties',
+				'declarations',
+				{ hasBlock: true, name: 'media', type: 'at-rule' },
+				'rules',
+				'at-rules',
+			],
+		],
+
 		'plugin/use-logical-properties-and-values': [true, { severity: 'warning' }],
 		'plugin/use-logical-units': [true, { severity: 'warning' }],
 

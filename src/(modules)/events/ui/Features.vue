@@ -1,0 +1,52 @@
+<template>
+	<section
+		v-if="notes.length > 0"
+		class="features base-grid"
+		aria-labelledby="features"
+	>
+		<p id="features">Фичи</p>
+
+		<ul class="list">
+			<li
+				v-for="note in notes"
+				:key="note"
+				class="item"
+			>
+				<p class="accent">{{ note }}</p>
+			</li>
+
+			<li
+				v-if="requirements.length > 0"
+				class="item"
+			>
+				<h3 class="accent root-metrics-fix">Условия участия</h3>
+
+				<Content>
+					<ul class="description">
+						<li
+							v-for="req in requirements"
+							:key="req"
+						>
+							{{ req }}
+						</li>
+					</ul>
+				</Content>
+			</li>
+		</ul>
+	</section>
+</template>
+
+<script setup lang="ts">
+	import type { components } from '@/(core)/api/openapi'
+
+	import { Content } from '@/(core)/ui/Content'
+
+	defineProps<{
+		notes: components['schemas']['HackathonFull']['notes']
+		requirements: components['schemas']['HackathonFull']['requirements']
+	}>()
+</script>
+
+<style scoped>
+	@import url('./base-grid.css');
+</style>

@@ -1,6 +1,9 @@
 <template>
 	<template v-if="event">
-		<Label class="label">
+		<Label
+			v-if="event.audience.length > 0"
+			class="label"
+		>
 			{{ event.audience.join(' · ') }}
 		</Label>
 
@@ -18,28 +21,44 @@
 			:event="event"
 		/>
 
-		<RegisterAction
-			v-if="event.registration_link || event.link"
-			class="action"
-			:is-actual="event.isActual"
-			:deadline="deadline!"
-			:link="normalizeUrl(event.registration_link) || normalizeUrl(event.link)"
-		/>
-
-		<Requirements
-			class="requirements"
+		<Features
+			class="section"
 			:requirements="event.requirements"
 			:notes="event.notes"
 		/>
 
+		<Organizers
+			class="section"
+			:organizers="event.organizers"
+		/>
+
+		<Stack
+			class="section"
+			:stack="event.stack"
+		/>
+
+		<Team
+			class="section"
+			:team="event.team_size"
+			:types="event.typeParticipant"
+		/>
+
 		<Prizes
-			class="prizes"
+			class="section"
 			:prizes="event.prizes"
 		/>
 
 		<Tracks
 			class="tracks"
 			:tracks="event.tracks"
+		/>
+
+		<RegisterAction
+			v-if="event.registration_link || event.link"
+			class="action"
+			:is-actual="event.isActual"
+			:deadline="deadline!"
+			:link="normalizeUrl(event.registration_link) || normalizeUrl(event.link)"
 		/>
 	</template>
 </template>
@@ -55,10 +74,13 @@
 	import type { Data } from './+data'
 
 	import {
+		Features,
 		Metadata,
+		Organizers,
 		Prizes,
 		RegisterAction,
-		Requirements,
+		Stack,
+		Team,
 		Tracks,
 	} from '../../ui'
 
@@ -75,6 +97,7 @@
 
 <style scoped>
 	.label {
+		max-inline-size: var(--paragraph-width);
 		margin-block-start: -1ex;
 	}
 
@@ -82,20 +105,20 @@
 		margin-block-start: var(--gap-3);
 	}
 
-	.action {
-		margin-block-start: var(--gap);
-		padding-block-start: var(--gap-2);
-	}
+	.section {
+		margin-block-start: calc(var(--gap) * 3);
 
-	.prizes {
-		margin-block-start: calc(var(--gap) * 5);
-	}
-
-	.requirements {
-		margin-block-start: calc(var(--gap) * 4);
+		.metadata + & {
+			margin-block-start: calc(var(--gap) * 5);
+		}
 	}
 
 	.tracks {
 		margin-block-start: calc(var(--gap) * 5);
+	}
+
+	.action {
+		margin-block-start: var(--gap);
+		padding-block-start: var(--gap-2);
 	}
 </style>

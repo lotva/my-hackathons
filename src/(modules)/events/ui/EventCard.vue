@@ -126,6 +126,10 @@
 			}
 		}
 
+		.time {
+			white-space: nowrap;
+		}
+
 		.title {
 			margin-block-start: var(--gap-2);
 
@@ -135,6 +139,7 @@
 			color: var(--title-color, var(--strong));
 			text-wrap: balance;
 			letter-spacing: -0.03em;
+			overflow-wrap: anywhere;
 		}
 
 		.link {

@@ -13,9 +13,3 @@
 		date: IDateInput
 	}>()
 </script>
-
-<style scoped>
-	.time {
-		white-space: nowrap;
-	}
-</style>

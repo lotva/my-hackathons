@@ -17,7 +17,10 @@
 <style scoped>
 	.item {
 		display: flex;
+		flex-basis: max(310px, calc(50% - var(--gap)));
 		flex-direction: column;
+		flex-grow: 1;
+
 		padding-block-start: calc(var(--gap) / 2);
 		border-block-start: 1px solid var(--tx-3);
 
