@@ -6,6 +6,12 @@
 	margin-inline-start: var(--damn-compensator);
 }
 
+@define-mixin child-line-gap $child-fs, $child-lh, $parent-lh {
+	padding-block-start: calc(
+		(($child-fs * $child-lh) / $parent-lh) * 1lh - $child-fs * 1ex
+	);
+}
+
 @define-mixin hover-focus-states {
 	&.hover,
 	&:hover,
