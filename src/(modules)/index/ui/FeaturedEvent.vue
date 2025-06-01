@@ -54,10 +54,14 @@
 		color: var(--strong);
 
 		background-color: var(--background);
-		background-image: url('/images/covers/featured-event.jpg');
+		background-image: url('/images/covers/featured-event.webp');
 		background-position: center;
 		background-size: cover;
 		background-blend-mode: color;
+
+		@media (prefers-color-scheme: dark) {
+			background-blend-mode: darken;
+		}
 
 		.title {
 			margin-block: 20vb var(--gap-relative);
@@ -67,10 +71,6 @@
 			line-height: 0.75;
 			text-wrap: balance;
 			letter-spacing: -0.03em;
-		}
-
-		@media (prefers-color-scheme: dark) {
-			background-blend-mode: color-burn;
 		}
 	}
 </style>
