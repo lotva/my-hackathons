@@ -17,7 +17,7 @@ export const data = async (pageContext: PageContextServer) => {
 	})
 
 	config({
-		description: data?.description,
+		description: data?.summary || data?.description,
 		title: data?.name,
 	})
 
