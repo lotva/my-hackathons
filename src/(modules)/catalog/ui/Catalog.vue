@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 	import { ELocation } from 'hackathons.map'
-	import { computed, onMounted, ref } from 'vue'
+	import { computed, ref } from 'vue'
 
 	import { TFilters } from '../config/types'
 	import { useFiltersSync } from '../lib/useFiltersSync'
@@ -37,15 +37,11 @@
 		...pagination.value,
 	}))
 
-	const { events, fetchEvents, hasMore, loadMore } = usePaginatedEvents(
+	useFiltersSync(filters, location)
+
+	const { events, hasMore, loadMore } = usePaginatedEvents(
 		combinedQueryParameters,
 	)
-
-	onMounted(() => {
-		useFiltersSync(filters, location)
-
-		fetchEvents()
-	})
 </script>
 
 <style scoped>

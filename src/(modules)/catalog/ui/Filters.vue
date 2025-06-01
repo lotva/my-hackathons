@@ -40,7 +40,8 @@
 <script setup lang="ts">
 	import { client } from '@/(core)/api'
 	import { Select } from '@/(core)/ui/Select'
-	import { computed, onMounted, ref } from 'vue'
+	import { useQuery } from '@tanstack/vue-query'
+	import { computed, onServerPrefetch } from 'vue'
 
 	import { FORMATS, IS_ACTUAL_OPTIONS, PARTICIPANTS } from '../config/filters'
 	import { TFilters } from '../config/types'
@@ -53,14 +54,20 @@
 		'update:modelValue': [TFilters]
 	}>()
 
-	const audience = ref<string[]>([])
-
-	async function fetchAudience() {
+	async function fetchAudience(): Promise<string[]> {
 		const { data } = await client.GET('/audience')
-		audience.value = data ?? []
+		return data ?? []
 	}
 
-	onMounted(fetchAudience)
+	const query = useQuery({
+		queryFn: fetchAudience,
+		queryKey: ['audience'],
+		suspense: true,
+	})
+
+	onServerPrefetch(query.suspense)
+
+	const audience = computed(() => query.data.value ?? [])
 
 	const isActualProxy = computed<string>({
 		get() {

@@ -1,4 +1,6 @@
-import type { operations } from '@/(core)/api/openapi'
+import type { components, operations } from '@/(core)/api/openapi'
+
+export type TEvent = components['schemas']['HackathonShort']
 
 export type TFilters = RemoveUndefined<TQuery>
 

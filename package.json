@@ -14,6 +14,7 @@
 	},
 	"dependencies": {
 		"@ark-ui/vue": "^5.9.1",
+		"@tanstack/vue-query": "^5.79.0",
 		"@types/node": "^22.15.3",
 		"@vitejs/plugin-vue": "^5.2.3",
 		"@vue/compiler-sfc": "^3.5.13",
@@ -24,6 +25,7 @@
 		"postcss-mixins": "^11.0.3",
 		"vike": "^0.4.229",
 		"vike-vue": "^0.9.0",
+		"vike-vue-query": "^0.2.0",
 		"vue": "^3.5.13"
 	},
 	"devDependencies": {
