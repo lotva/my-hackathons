@@ -62,7 +62,8 @@
 			display: inline-flex;
 
 			inline-size: fit-content;
-			padding: calc(var(--gap-relative) / 2) var(--gap-relative);
+			padding: calc(var(--gap-relative) / 2 + var(--button-optical-compensator))
+				var(--gap-relative) calc(var(--gap-relative) / 2);
 
 			font-size: min(2.5em, 8vi);
 			color: var(--background);

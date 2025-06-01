@@ -17,8 +17,8 @@ export default {
 
 		'order/order': [
 			[
-				{ name: 'mixin', type: 'at-rule' },
 				'custom-properties',
+				{ name: 'mixin', type: 'at-rule' },
 				'declarations',
 				{ hasBlock: true, name: 'media', type: 'at-rule' },
 				'rules',

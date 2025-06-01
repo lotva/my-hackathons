@@ -170,8 +170,8 @@
 			}
 		}
 
-		@supports (anchor-name: --a) {
-			&[data-part='content']::before {
+		&[data-part='content']::before {
+			@supports (anchor-name: --a) {
 				pointer-events: none;
 				content: '';
 

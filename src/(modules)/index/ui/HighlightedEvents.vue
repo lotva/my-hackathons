@@ -25,6 +25,14 @@
 		gap: calc(var(--gap) / 4);
 		margin-block-end: var(--gap-3);
 
+		@media (width >= 700px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (width >= 900px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
 		.event:nth-child(1) {
 			--cover-url: url('/images/covers/1.jpg');
 
@@ -51,14 +59,6 @@
 			@media (width >= 700px) {
 				grid-column: span 2;
 			}
-		}
-
-		@media (width >= 700px) {
-			grid-template-columns: repeat(2, 1fr);
-		}
-
-		@media (width >= 900px) {
-			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 </style>

@@ -70,6 +70,7 @@
 
 	--root-compensator: -0.07em;
 	--damn-compensator: -0.03em;
+	--button-optical-compensator: calc((1cap - 1ex) / 2);
 
 	@mixin light;
 

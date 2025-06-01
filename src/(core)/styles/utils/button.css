@@ -5,7 +5,8 @@
 
 	display: flex;
 
-	padding: calc(var(--gap) / 2) calc(var(--gap) / 2 + var(--gap) / 4);
+	padding: calc(var(--gap) / 2 + var(--button-optical-compensator))
+		calc(var(--gap) / 2 + var(--gap) / 4) calc(var(--gap) / 2);
 	border: none;
 	border-radius: 100vi;
 
@@ -17,6 +18,10 @@
 	transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 	transition-duration: 0.2s;
 	transition-property: background-color, transform;
+
+	@media (prefers-reduced-motion: no-preference) {
+		animation: pop 0.25s ease-out;
+	}
 
 	&:hover {
 		background-color: var(--ui-2);
@@ -34,10 +39,6 @@
 	&:active:hover {
 		transform: scale(var(--focus-scale));
 		animation: pop 0s ease-out;
-	}
-
-	@media (prefers-reduced-motion: no-preference) {
-		animation: pop 0.25s ease-out;
 	}
 }
 
