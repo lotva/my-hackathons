@@ -15,18 +15,18 @@ a {
 	text-decoration-skip-ink: none;
 	text-underline-offset: 0.35em;
 
-	&:focus-visible {
-		--underline-thickness: var(--outline-thickness);
-
-		outline-color: transparent;
-		outline-style: solid;
-	}
-
 	@media (hover: hover) and (pointer: fine) {
 		&[href*="://"]
 		{
 			cursor: alias;
 		}
+	}
+
+	&:focus-visible {
+		--underline-thickness: var(--outline-thickness);
+
+		outline-color: transparent;
+		outline-style: solid;
 	}
 }
 
@@ -159,10 +159,6 @@ dl {
 	font-weight: var(--typography__font-weight--note);
 	color: rgb(var(--color__text) / var(--color__note-opacity));
 	letter-spacing: 0.02em;
-}
-
-dd {
-	margin: 0;
 }
 
 /* Emphasis */
