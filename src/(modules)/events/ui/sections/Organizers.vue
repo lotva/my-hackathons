@@ -1,25 +1,21 @@
 <template>
-	<section
+	<EventSection
 		v-if="organizers.length > 0"
-		class="organizers base-grid"
-		aria-labelledby="organizers"
+		id="organizers"
+		label="Партнёры"
 	>
-		<p id="organizers">Партнёры</p>
-
 		<p class="accent">
 			{{ organizers.map((organizer) => organizer.name).join(' · ') }}
 		</p>
-	</section>
+	</EventSection>
 </template>
 
 <script setup lang="ts">
 	import type { components } from '@/(core)/api/openapi'
 
+	import EventSection from './EventSection.vue'
+
 	defineProps<{
 		organizers: components['schemas']['HackathonFull']['organizers']
 	}>()
 </script>
-
-<style scoped>
-	@import url('./base-grid.css');
-</style>

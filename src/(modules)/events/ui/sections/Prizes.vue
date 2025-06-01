@@ -1,11 +1,9 @@
 <template>
-	<section
+	<EventSection
 		v-if="prizes.length > 0"
-		class="prizes base-grid"
-		aria-labelledby="prizes"
+		id="prizes"
+		label="Призы"
 	>
-		<p id="prizes">Призы</p>
-
 		<ul class="list">
 			<li
 				v-for="prize in prizes"
@@ -21,11 +19,13 @@
 				</article>
 			</li>
 		</ul>
-	</section>
+	</EventSection>
 </template>
 
 <script setup lang="ts">
 	import type { components } from '@/(core)/api/openapi'
+
+	import EventSection from './EventSection.vue'
 
 	defineProps<{
 		prizes: components['schemas']['HackathonFull']['prizes']
@@ -33,8 +33,6 @@
 </script>
 
 <style scoped>
-	@import url('./base-grid.css');
-
 	.prizes {
 		row-gap: var(--gap-2);
 

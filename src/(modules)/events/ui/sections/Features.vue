@@ -1,11 +1,9 @@
 <template>
-	<section
+	<EventSection
 		v-if="notes.length > 0"
-		class="features base-grid"
-		aria-labelledby="features"
+		id="features"
+		label="Фичи"
 	>
-		<p id="features">Фичи</p>
-
 		<ul class="list">
 			<li
 				v-for="note in notes"
@@ -33,7 +31,7 @@
 				</Content>
 			</li>
 		</ul>
-	</section>
+	</EventSection>
 </template>
 
 <script setup lang="ts">
@@ -41,12 +39,10 @@
 
 	import { Content } from '@/(core)/ui/Content'
 
+	import EventSection from './EventSection.vue'
+
 	defineProps<{
 		notes: components['schemas']['HackathonFull']['notes']
 		requirements: components['schemas']['HackathonFull']['requirements']
 	}>()
 </script>
-
-<style scoped>
-	@import url('./base-grid.css');
-</style>

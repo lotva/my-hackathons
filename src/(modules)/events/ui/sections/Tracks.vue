@@ -52,9 +52,9 @@
 	.track-title {
 		margin-block-start: var(--gap-relative);
 
-		font-size: 2em;
+		font-size: 1.75em;
 		font-weight: 500;
-		line-height: 0.9;
+		line-height: 1;
 		letter-spacing: -0.03em;
 	}
 
