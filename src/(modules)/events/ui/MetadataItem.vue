@@ -31,7 +31,7 @@
 		}
 
 		.definition {
-			font-family: Damn, sans-serif;
+			font-family: Damn, 'PT Root UI', sans-serif;
 			font-size: 4.5rem;
 			line-height: 0.8;
 			color: var(--strong);

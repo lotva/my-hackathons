@@ -66,7 +66,7 @@
 		.title {
 			margin-block: 20vb var(--gap-relative);
 
-			font-family: Damn, sans-serif;
+			font-family: Damn, 'PT Root UI', sans-serif;
 			font-size: 4.5em;
 			line-height: 0.75;
 			text-wrap: balance;

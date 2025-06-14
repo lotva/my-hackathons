@@ -64,7 +64,7 @@
 		.title {
 			margin-block: 0 var(--gap-relative);
 
-			font-family: Damn, sans-serif;
+			font-family: Damn, 'PT Root UI', sans-serif;
 			font-size: min(20vi, 7.5em);
 			line-height: 0.8;
 			color: var(--strong);

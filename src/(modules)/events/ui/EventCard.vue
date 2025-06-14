@@ -21,7 +21,12 @@
 						{{ event.topic }}
 					</li>
 
-					<li class="item">{{ location }}</li>
+					<li
+						v-if="location"
+						class="item"
+					>
+						{{ location }}
+					</li>
 
 					<li
 						v-if="!isClipped"
@@ -133,7 +138,7 @@
 		.title {
 			margin-block-start: var(--gap-2);
 
-			font-family: Damn, sans-serif;
+			font-family: Damn, 'PT Root UI', sans-serif;
 			font-size: 4.5em;
 			line-height: 0.8;
 			color: var(--title-color, var(--strong));
