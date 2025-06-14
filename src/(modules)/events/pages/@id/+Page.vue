@@ -118,7 +118,7 @@
 	}
 
 	.action {
-		margin-block-start: var(--gap);
+		margin-block-start: var(--gap-3);
 		padding-block-start: var(--gap-2);
 	}
 </style>
