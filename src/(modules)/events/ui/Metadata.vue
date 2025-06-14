@@ -1,14 +1,14 @@
 <template>
 	<dl class="metadata">
 		<MetadataItem
-			v-if="event.dateStart"
+			v-if="event.dateStart?.utc"
 			label="Дата начала"
 		>
 			<Time :date="event.dateStart" />
 		</MetadataItem>
 
 		<MetadataItem
-			v-if="event.dateEnd"
+			v-if="event.dateEnd?.utc"
 			label="Дата окончания"
 		>
 			<Time :date="event.dateEnd" />
