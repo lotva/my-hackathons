@@ -38,11 +38,11 @@
 </template>
 
 <script setup lang="ts">
-	import { client } from '@/(core)/api'
 	import { Select } from '@/(core)/ui/Select'
 	import { useQuery } from '@tanstack/vue-query'
 	import { computed, onServerPrefetch } from 'vue'
 
+	import { fetchAudience } from '../api/queries'
 	import { FORMATS, IS_ACTUAL_OPTIONS, PARTICIPANTS } from '../config/filters'
 	import { TFilters } from '../config/types'
 
@@ -53,11 +53,6 @@
 	const emit = defineEmits<{
 		'update:modelValue': [TFilters]
 	}>()
-
-	async function fetchAudience(): Promise<string[]> {
-		const { data } = await client.GET('/audience')
-		return data ?? []
-	}
 
 	const query = useQuery({
 		queryFn: fetchAudience,

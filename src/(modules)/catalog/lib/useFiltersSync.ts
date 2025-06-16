@@ -18,10 +18,11 @@ export function useFiltersSync(
 	const parameters = useUrlSearchParams('history')
 	initFiltersFromUrlParameters(filters, location, pageContext.urlParsed.search)
 
-	const hasActiveFilters = computed(() =>
-		Object.values(filters.value).some(
-			(v) => v !== undefined && v !== null && v !== '',
-		),
+	const hasActiveFilters = computed(
+		() =>
+			Object.values(filters.value).some(
+				(v) => v !== undefined && v !== null && v !== '',
+			) || location.value !== undefined,
 	)
 
 	watch(

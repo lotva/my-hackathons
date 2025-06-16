@@ -35,6 +35,7 @@
 	const combinedQueryParameters = computed(() => ({
 		...filters.value,
 		...pagination.value,
+		location: location.value,
 	}))
 
 	useFiltersSync(filters, location)
