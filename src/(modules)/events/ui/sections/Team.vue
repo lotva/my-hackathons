@@ -4,7 +4,7 @@
 		id="team"
 		label="Состав команды"
 	>
-		<p class="accent">{{ team }}, {{ types.join(', ').toLowerCase() }}</p>
+		<p class="accent">{{ [team, ...types].join(', ').toLowerCase() }}</p>
 	</EventSection>
 </template>
 
