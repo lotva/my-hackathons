@@ -32,20 +32,6 @@
 		rel="apple-touch-icon"
 		:href="icon180"
 	/>
-
-	<link
-		rel="preload"
-		href="/fonts/pt-root-ui-vf.woff2"
-		as="font"
-		type="font/woff2"
-	/>
-
-	<link
-		rel="preload"
-		href="/fonts/damn.woff2"
-		as="font"
-		type="font/woff2"
-	/>
 </template>
 
 <script setup lang="ts">
