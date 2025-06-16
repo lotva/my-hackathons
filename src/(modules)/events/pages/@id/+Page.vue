@@ -1,13 +1,15 @@
 <template>
 	<template v-if="event">
-		<Label
-			v-if="event.audience.length > 0"
-			class="label"
-		>
-			{{ event.audience.join(' · ') }}
-		</Label>
+		<hgroup>
+			<Label
+				v-if="event.audience.length > 0"
+				class="label"
+			>
+				{{ event.audience.join(' · ') }}
+			</Label>
 
-		<h1 class="root-metrics-fix">{{ event.name }}</h1>
+			<h1 class="root-metrics-fix">{{ event.name }}</h1>
+		</hgroup>
 
 		<Content>
 			<p>
