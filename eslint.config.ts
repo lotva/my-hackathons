@@ -51,6 +51,7 @@ export default defineConfigWithVueTs(
 
 			'import-x/first': 'warn',
 			'import-x/newline-after-import': 'warn',
+			'import-x/no-cycle': 'error',
 
 			'unicorn/filename-case': [
 				'warn',

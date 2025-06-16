@@ -6,6 +6,7 @@
 		"check:formatting": "prettier . --check",
 		"check:styles": "stylelint \"src/**/*.{vue,css}\"",
 		"check:scripts": "eslint",
+		"check:arhitechture": "depcruise src",
 		"check:types": "vue-tsc --noEmit"
 	},
 	"engines": {
@@ -40,6 +41,7 @@
 		"@vue/eslint-config-typescript": "^14.5.0",
 		"@vue/test-utils": "^2.4.6",
 		"@vue/tsconfig": "^0.7.0",
+		"dependency-cruiser": "^16.10.2",
 		"eslint": "^9.25.1",
 		"eslint-config-prettier": "^10.1.2",
 		"eslint-import-resolver-typescript": "^4.3.4",
