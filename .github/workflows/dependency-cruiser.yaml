@@ -1,0 +1,33 @@
+name: Dependency Cruiser
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  dependency-cruiser:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node-version: [21.7.1]
+        pnpm-version: [10.10.0]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ matrix.pnpm-version }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run Depcruise
+        run: pnpm run check:architecture
