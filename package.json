@@ -2,7 +2,7 @@
 	"scripts": {
 		"dev": "vike dev",
 		"build": "vike build",
-		"preview": "vike preview",
+		"preview": "vike preview --host",
 		"check:formatting": "prettier . --check",
 		"check:styles": "stylelint \"src/**/*.{vue,css}\"",
 		"check:scripts": "eslint",
