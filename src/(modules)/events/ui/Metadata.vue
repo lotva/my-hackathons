@@ -1,5 +1,8 @@
 <template>
-	<dl class="metadata">
+	<dl
+		v-if="hasMetadata"
+		class="metadata"
+	>
 		<MetadataItem
 			v-if="event.dateStart?.utc"
 			label="Дата начала"
@@ -37,9 +40,15 @@
 
 	import MetadataItem from './MetadataItem.vue'
 
-	defineProps<{
+	const props = defineProps<{
 		event: components['schemas']['HackathonFull']
 	}>()
+
+	const hasMetadata =
+		props.event.dateStart?.utc ||
+		props.event.dateEnd?.utc ||
+		props.event.format ||
+		(props.event.location && props.event.location.length > 0)
 </script>
 
 <style scoped>

@@ -29,7 +29,7 @@
 					</li>
 
 					<li
-						v-if="!isClipped"
+						v-if="!isClipped && event.dateStart?.utc"
 						class="item"
 					>
 						<Time :date="event.dateStart" />
