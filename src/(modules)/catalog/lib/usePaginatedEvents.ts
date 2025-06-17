@@ -36,14 +36,6 @@ export function usePaginatedEvents(filters: Ref<TFilters>) {
 	})
 
 	watch(
-		filters,
-		() => {
-			query.refetch()
-		},
-		{ deep: true },
-	)
-
-	watch(
 		() => query.isPlaceholderData.value || query.isFetchingNextPage.value,
 		(isLoading) => {
 			document.body.classList.toggle('_is-transitioning', isLoading)
