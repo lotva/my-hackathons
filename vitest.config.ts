@@ -1,9 +1,12 @@
+import type { UserConfig } from 'vite'
+
 import { configDefaults, defineConfig, mergeConfig } from 'vitest/config'
 
 import viteConfig from './vite.config'
 
 export default mergeConfig(
-	viteConfig,
+	viteConfig as UserConfig,
+
 	defineConfig({
 		test: {
 			environment: 'jsdom',

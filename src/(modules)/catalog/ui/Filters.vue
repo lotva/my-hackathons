@@ -14,7 +14,7 @@
 		<Select
 			v-model="filters.audience"
 			class="select"
-			:options="audience"
+			:options="AUDIENCES"
 			label="Специализация"
 			placeholder="Любая"
 		/>
@@ -39,11 +39,14 @@
 
 <script setup lang="ts">
 	import { Select } from '@/(core)/ui/Select'
-	import { useQuery } from '@tanstack/vue-query'
-	import { computed, onServerPrefetch } from 'vue'
+	import { computed } from 'vue'
 
-	import { fetchAudience } from '../api/queries'
-	import { FORMATS, IS_ACTUAL_OPTIONS, PARTICIPANTS } from '../config/filters'
+	import {
+		AUDIENCES,
+		FORMATS,
+		IS_ACTUAL_OPTIONS,
+		PARTICIPANTS,
+	} from '../config/filters'
 	import { TFilters } from '../config/types'
 
 	const props = defineProps<{
@@ -53,16 +56,6 @@
 	const emit = defineEmits<{
 		'update:modelValue': [TFilters]
 	}>()
-
-	const query = useQuery({
-		queryFn: fetchAudience,
-		queryKey: ['audience'],
-		suspense: true,
-	})
-
-	onServerPrefetch(query.suspense)
-
-	const audience = computed(() => query.data.value ?? [])
 
 	const isActualProxy = computed<string>({
 		get() {

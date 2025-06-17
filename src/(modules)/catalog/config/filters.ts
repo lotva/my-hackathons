@@ -1,6 +1,23 @@
-export const PARTICIPANTS = ['Школьники', 'Специалисты', 'Студенты']
+import type { TFilters } from './types'
 
-export const FORMATS = ['Онлайн', 'Оффлайн', 'Гибрид']
+export const AUDIENCES: TAudience[] = [
+	'Разработчики',
+	'Дизайнеры',
+	'Аналитики',
+	'Менеджеры',
+	'Безопасность',
+	'Инженеры',
+	'Архитекторы',
+	'Маркетинг',
+]
+
+export const FORMATS: TFormat[] = ['Онлайн', 'Оффлайн', 'Гибрид']
+
+export const PARTICIPANTS: TParticipant[] = [
+	'Школьники',
+	'Специалисты',
+	'Студенты',
+]
 
 export const IS_ACTUAL_OPTIONS = [
 	{
@@ -12,3 +29,7 @@ export const IS_ACTUAL_OPTIONS = [
 		value: 'false',
 	},
 ]
+
+export type TAudience = NonNullable<TFilters['audience']>
+export type TFormat = NonNullable<TFilters['format']>
+export type TParticipant = NonNullable<TFilters['typeParticipant']>
