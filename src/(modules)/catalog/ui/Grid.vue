@@ -21,6 +21,8 @@
 		<button
 			:class="['button', { _hidden: !hasMore }]"
 			type="button"
+			:aria-busy="isFetching"
+			:disabled="isFetching"
 			@click="$emit('loadMore')"
 		>
 			<span class="root-metrics-fix">Загрузить ещё</span>
@@ -35,6 +37,7 @@
 	defineProps<{
 		events: components['schemas']['HackathonShort'][] | undefined
 		hasMore: boolean
+		isFetching: boolean
 	}>()
 
 	defineEmits<{

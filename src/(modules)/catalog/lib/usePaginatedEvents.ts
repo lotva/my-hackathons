@@ -45,7 +45,7 @@ export function usePaginatedEvents(filters: Ref<TFilters>) {
 	return {
 		events,
 		hasMore,
-		isLoading: query.isLoading,
+		isFetching: query.isFetchingNextPage,
 		loadMore: () => query.fetchNextPage(),
 		refetch: query.refetch,
 	}

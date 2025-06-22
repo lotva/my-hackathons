@@ -9,8 +9,9 @@
 		/>
 
 		<Grid
-			:events="events"
 			class="grid"
+			:events="events"
+			:is-fetching="isFetching"
 			:has-more="hasMore"
 			@load-more="loadMore"
 		/>
@@ -40,7 +41,7 @@
 
 	useFiltersSync(filters, location)
 
-	const { events, hasMore, loadMore } = usePaginatedEvents(
+	const { events, hasMore, isFetching, loadMore } = usePaginatedEvents(
 		combinedQueryParameters,
 	)
 </script>
