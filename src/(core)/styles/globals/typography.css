@@ -146,32 +146,7 @@ details {
 	}
 }
 
-/* Description Lists */
-
-dl {
-	display: grid;
-	grid-template-columns: max-content 1fr;
-	gap: var(--gap) calc(var(--gap) * 2);
-
-	margin-block: 0;
-
-	font-size: 0.75em;
-	font-weight: var(--typography__font-weight--note);
-	color: rgb(var(--color__text) / var(--color__note-opacity));
-	letter-spacing: 0.02em;
-}
-
 /* Emphasis */
-
-mark {
-	padding: 0.2em 0;
-	color: rgb(var(--color__text));
-	background-color: #ffef00;
-
-	@media (prefers-color-scheme: dark) {
-		background-color: rgb(var(--color__border));
-	}
-}
 
 small {
 	display: block;
