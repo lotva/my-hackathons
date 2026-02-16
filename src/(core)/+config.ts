@@ -7,7 +7,8 @@ import vikeVue from 'vike-vue/config'
 // https://vike.dev/config
 
 export default {
-	extends: vikeVue as typeof vikeVue,
-	// https://vike.dev/Layout
+	extends: [vikeVue],
+	lang: 'ru',
 	Layout,
+	title: 'Мои хакатоны',
 } satisfies Config

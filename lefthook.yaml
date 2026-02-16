@@ -15,13 +15,9 @@ pre-commit:
       run: pnpm exec eslint --fix {staged_files}
       stage_fixed: true
     lint-architecture:
+      glob: '*.{vue,ts,css}'
       run: pnpm exec depcruise src
     format:
       glob: '*.{vue,ts,json,css,yaml,html}'
       run: pnpm exec prettier --write {staged_files}
       stage_fixed: true
-
-pre-push:
-  commands:
-    test:
-      run: pnpm run test

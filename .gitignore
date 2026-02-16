@@ -1,5 +1,7 @@
 .env
 
+.vercel
+
 # Logs
 logs
 *.log
