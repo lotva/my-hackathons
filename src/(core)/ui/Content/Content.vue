@@ -13,6 +13,8 @@
 		h3,
 		p {
 			max-inline-size: var(--paragraph-width);
+
+			text-wrap-style: pretty;
 		}
 
 		:is(p, .with-sidenote):not(:first-child) {
