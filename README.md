@@ -10,7 +10,7 @@
 
 Рассказ о проекте: https://lotva.ru/projects/my-hackathons/
 
-Продакшен: https://hackathons.lotva.ru/
+Продакшен: https://hackathons.lotva.ru/ · Зеркало для РФ: https://ru-hackathons.vercel.app
 
 ![Preview](https://github.com/user-attachments/assets/72fa11d6-7773-41d6-9c4c-87c50db15830)
 
