@@ -6,6 +6,9 @@ import vikeVueQuery from 'vike-vue-query/config'
 import vikeVue from 'vike-vue/config'
 
 export default {
+	cli: {
+		preview: 'vite',
+	},
 	extends: [vikeVue, vikeVueQuery, vikePhoton],
 	lang: 'ru',
 	Layout,
