@@ -7,6 +7,8 @@ import type { TEvent, TFilters } from '../config/types'
 export function usePaginatedEvents(filters: Ref<TFilters>) {
 	const limit = computed(() => filters.value.limit ?? 20)
 
+	const queryKey = computed(() => ['events', filters.value])
+
 	const query = useInfiniteQuery<TEvent[]>({
 		getNextPageParam: (lastPage, allPages) => {
 			if (lastPage.length < limit.value) {
@@ -22,7 +24,7 @@ export function usePaginatedEvents(filters: Ref<TFilters>) {
 				limit: limit.value,
 				offset: Number(pageParameter),
 			}),
-		queryKey: ['events', filters],
+		queryKey,
 		suspense: true,
 	})
 
