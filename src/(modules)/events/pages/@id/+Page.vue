@@ -13,7 +13,13 @@
 
 		<Content>
 			<p>
-				<Badge v-if="event.isActual">Скоро старт</Badge>
+				<Badge v-if="event.isActual && deadline">
+					Дедлайн:
+					<Time :date="deadline" />
+				</Badge>
+
+				<Badge v-else-if="event.isActual">Скоро начало</Badge>
+
 				{{ event.description || event.summary }}
 			</p>
 		</Content>
@@ -59,7 +65,6 @@
 			v-if="event.registration_link || event.link"
 			class="action"
 			:is-actual="event.isActual"
-			:deadline="deadline!"
 			:link="normalizeUrl(event.registration_link) || normalizeUrl(event.link)"
 		/>
 	</template>
@@ -70,6 +75,7 @@
 	import { Badge } from '@/(core)/ui/Badge'
 	import { Content } from '@/(core)/ui/Content'
 	import { Label } from '@/(core)/ui/Label'
+	import { Time } from '@/(core)/ui/Time'
 	import { useData } from 'vike-vue/useData'
 	import { computed } from 'vue'
 
@@ -120,7 +126,6 @@
 	}
 
 	.action {
-		margin-block-start: var(--gap-3);
-		padding-block-start: var(--gap-2);
+		margin-block-start: calc(var(--gap) * 4);
 	}
 </style>

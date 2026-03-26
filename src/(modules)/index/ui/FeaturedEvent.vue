@@ -17,7 +17,8 @@
 					})
 				"
 			>
-				Начало — <Time :date="event.dateStart" />
+				Начало —
+				<Time :date="event.dateStart" />
 			</ActionLink>
 		</p>
 	</article>

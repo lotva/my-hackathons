@@ -1,12 +1,6 @@
 <template>
 	<h1>
 		Каталог хакатонов России. Смотрите ближайшие даты, темы проектов и призы
-		<span
-			class="icon"
-			aria-hidden
-		>
-			🏆</span
-		>
 	</h1>
 
 	<FeaturedEvent

@@ -54,7 +54,7 @@ h1 {
 
 	max-inline-size: 14em;
 	margin-block-end: var(--gap-2);
-	padding-block-start: var(--gap-relative);
+	padding-block-start: calc(var(--gap-relative) * 1.25);
 
 	font-size: 2em;
 	line-height: 0.9;

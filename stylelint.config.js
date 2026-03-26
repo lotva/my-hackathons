@@ -29,6 +29,13 @@ export default {
 		'plugin/use-logical-properties-and-values': [true, { severity: 'warning' }],
 		'plugin/use-logical-units': [true, { severity: 'warning' }],
 
+		'property-no-unknown': [
+			true,
+			{
+				ignoreProperties: ['corner-shape'],
+			},
+		],
+
 		'selector-class-pattern': [
 			/^(?!.*--)(?:[a-z][\da-z]*(?:-[\da-z]+)*|_[a-z][\da-z]*(?:-[\da-z]+)*)$/,
 			{

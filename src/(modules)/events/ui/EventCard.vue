@@ -48,8 +48,8 @@
 						})
 					"
 				>
-					{{ event.name }}</a
-				>
+					{{ event.name }}
+				</a>
 			</h2>
 
 			<div
