@@ -1,6 +1,7 @@
-import { client } from '@/(core)/api'
 import { keepPreviousData, useInfiniteQuery } from '@tanstack/vue-query'
 import { computed, onServerPrefetch, type Ref, watch } from 'vue'
+
+import { client } from '@/(core)/api'
 
 import type { TEvent, TFilters } from '../config/types'
 

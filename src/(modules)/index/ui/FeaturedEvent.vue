@@ -25,12 +25,13 @@
 </template>
 
 <script setup lang="ts">
+	import { computed } from 'vue'
+
 	import type { components } from '@/(core)/api/openapi'
 
 	import { getRoute } from '@/(core)/route-tree.gen'
 	import { ActionLink } from '@/(core)/ui/ActionLink'
 	import { Time } from '@/(core)/ui/Time'
-	import { computed } from 'vue'
 
 	interface IProps {
 		event: components['schemas']['HackathonShort']

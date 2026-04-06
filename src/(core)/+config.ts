@@ -1,7 +1,8 @@
 import type { Config } from 'vike/types'
 
-import Layout from '@/(core)/layouts/LayoutDefault.vue'
 import vikeVue from 'vike-vue/config'
+
+import Layout from '@/(core)/layouts/LayoutDefault.vue'
 
 // Default config (can be overridden by pages)
 // https://vike.dev/config

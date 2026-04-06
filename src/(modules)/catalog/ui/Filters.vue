@@ -38,8 +38,9 @@
 </template>
 
 <script setup lang="ts">
-	import { Select } from '@/(core)/ui/Select'
 	import { computed } from 'vue'
+
+	import { Select } from '@/(core)/ui/Select'
 
 	import {
 		AUDIENCES,

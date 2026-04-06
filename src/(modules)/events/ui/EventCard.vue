@@ -68,11 +68,12 @@
 </template>
 
 <script setup lang="ts">
+	import { computed } from 'vue'
+
 	import { components } from '@/(core)/api/openapi'
 	import { getRoute } from '@/(core)/route-tree.gen'
 	import { Label } from '@/(core)/ui/Label'
 	import { Time } from '@/(core)/ui/Time'
-	import { computed } from 'vue'
 
 	import { checkIfTitleLong } from '../lib/checkIfTitleLong'
 

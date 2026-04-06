@@ -37,8 +37,9 @@
 </template>
 
 <script setup lang="ts">
-	import { getRoute } from '@/(core)/route-tree.gen'
 	import { usePageContext } from 'vike-vue/usePageContext'
+
+	import { getRoute } from '@/(core)/route-tree.gen'
 
 	import IconLoader from './IconLoader.vue'
 	import IconTelegram from './IconTelegram.vue'

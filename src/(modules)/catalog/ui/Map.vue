@@ -26,11 +26,12 @@
 </template>
 
 <script setup lang="ts">
-	import { Label } from '@/(core)/ui/Label'
 	import { useQuery } from '@tanstack/vue-query'
 	import { ELocation, HackathonsMap } from 'hackathons.map'
-	import 'hackathons.map/dist/hackathons.map.css'
 	import { computed, onServerPrefetch } from 'vue'
+	import 'hackathons.map/dist/hackathons.map.css'
+
+	import { Label } from '@/(core)/ui/Label'
 
 	import { fetchLocations } from '../api/queries'
 	import {

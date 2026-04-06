@@ -1,7 +1,8 @@
 // https://vike.dev/data
 
-import { client } from '@/(core)/api/client.js'
 import { useConfig } from 'vike-vue/useConfig'
+
+import { client } from '@/(core)/api/client.js'
 
 export type Data = Awaited<ReturnType<typeof data>>
 

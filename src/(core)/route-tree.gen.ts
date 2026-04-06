@@ -117,8 +117,11 @@ return result;
 }
 
 import { usePageContext } from 'vike-vue/usePageContext'
+
 function useParams<T extends PageRoute>(params: { from: T }): UseParamsResult<T> {
 const pageContext = usePageContext();
+
+
 const routeParams = pageContext.routeParams as Record<string, string>;
 
 // Check if this is a catch-all route
@@ -149,4 +152,5 @@ return {
 
 // Handle regular dynamic routes without catch-all
 return routeParams as UseParamsResult<T>;
+
 }

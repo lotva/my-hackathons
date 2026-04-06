@@ -1,5 +1,11 @@
+import type { Config } from 'stylelint'
+
 export default {
-	extends: ['stylelint-config-standard-vue', 'stylelint-config-clean-order'],
+	extends: [
+		'stylelint-config-standard-vue',
+		'stylelint-config-clean-order',
+		'stylelint-plugin-logical-css/configs/recommended',
+	],
 
 	plugins: ['stylelint-plugin-logical-css'],
 
@@ -26,9 +32,6 @@ export default {
 			],
 		],
 
-		'plugin/use-logical-properties-and-values': [true, { severity: 'warning' }],
-		'plugin/use-logical-units': [true, { severity: 'warning' }],
-
 		'property-no-unknown': [
 			true,
 			{
@@ -44,4 +47,4 @@ export default {
 			},
 		],
 	},
-}
+} satisfies Config

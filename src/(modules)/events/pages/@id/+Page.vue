@@ -71,13 +71,14 @@
 </template>
 
 <script setup lang="ts">
+	import { useData } from 'vike-vue/useData'
+	import { computed } from 'vue'
+
 	import { normalizeUrl } from '@/(core)/lib/normalizeUrl'
 	import { Badge } from '@/(core)/ui/Badge'
 	import { Content } from '@/(core)/ui/Content'
 	import { Label } from '@/(core)/ui/Label'
 	import { Time } from '@/(core)/ui/Time'
-	import { useData } from 'vike-vue/useData'
-	import { computed } from 'vue'
 
 	import type { Data } from './+data'
 

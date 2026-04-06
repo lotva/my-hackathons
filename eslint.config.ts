@@ -1,11 +1,10 @@
 import pluginVitest from '@vitest/eslint-plugin'
-import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 import {
 	defineConfigWithVueTs,
 	vueTsConfigs,
 } from '@vue/eslint-config-typescript'
 import * as pluginImportX from 'eslint-plugin-import-x'
-import perfectionist from 'eslint-plugin-perfectionist'
+import { configs as perfectionistConfigs } from 'eslint-plugin-perfectionist'
 import pluginPlaywright from 'eslint-plugin-playwright'
 import pluginUnicorn from 'eslint-plugin-unicorn'
 import pluginVue from 'eslint-plugin-vue'
@@ -23,12 +22,14 @@ export default defineConfigWithVueTs(
 		'**/dist/**',
 		'**/dist-ssr/**',
 		'**/coverage/**',
+		'.vercel/**',
+		'node_modules/**',
 	]),
 
 	pluginVue.configs['flat/recommended'],
 	vueTsConfigs.recommended,
 	pluginUnicorn.configs.all,
-	perfectionist.configs['recommended-natural'],
+	perfectionistConfigs['recommended-natural'],
 	pluginImportX.flatConfigs.recommended,
 	pluginImportX.flatConfigs.typescript,
 
@@ -41,8 +42,6 @@ export default defineConfigWithVueTs(
 		...pluginPlaywright.configs['flat/recommended'],
 		files: ['e2e/**/*.{test,spec}.{js,ts,jsx,tsx}'],
 	},
-
-	skipFormatting,
 
 	{
 		rules: {
