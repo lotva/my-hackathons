@@ -14,6 +14,31 @@
 		content="Мои хакатоны"
 	/>
 
+	<meta
+		property="og:image"
+		content="/images/open-graph.jpg"
+	/>
+
+	<meta
+		property="og:image:width"
+		content="1800"
+	/>
+
+	<meta
+		property="og:image:height"
+		content="900"
+	/>
+
+	<meta
+		property="og:image:type"
+		content="image/jpeg"
+	/>
+
+	<meta
+		property="twitter:card"
+		content="summary_large_image"
+	/>
+
 	<link
 		rel="icon"
 		type="image/svg+xml"
